@@ -1,17 +1,34 @@
+import { Fragment } from 'react';
+
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import News from './pages/News';
-import Contact from './pages/Contact';
-import Header from './pages/Header';
+import { publicRoutes } from '@/routes';
+import DefaultLayouts from './components/Layout/DefaultLayouts';
 
 function App() {
     return (
         <div style={{ padding: '32px' }}>
-            <Header />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/contact" element={<Contact />} />
+                {publicRoutes.map((route, index) => {
+                    const Page = route.component;
+                    let Layout = DefaultLayouts;
+
+                    if (route.layout) {
+                        Layout = route.layout;
+                    } else if (route.layout === null) {
+                        Layout = Fragment;
+                    }
+                    return (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    );
+                })}
             </Routes>
         </div>
     );
