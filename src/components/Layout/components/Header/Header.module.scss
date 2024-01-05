@@ -1,0 +1,10 @@
+.wrapper {
+    width: 100%;
+    height: var(--default-layout-header-height, 60px);
+    background: linear-gradient(-180deg, #f53d2d, #f63);
+}
+
+.inner {
+    height: 100%;
+    width: var(--default-layout-width);
+}

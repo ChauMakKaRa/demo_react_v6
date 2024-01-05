@@ -6,7 +6,7 @@ import DefaultLayouts from './components/Layout/DefaultLayouts';
 
 function App() {
     return (
-        <div style={{ padding: '32px' }}>
+        <div>
             <Routes>
                 {publicRoutes.map((route, index) => {
                     const Page = route.component;
