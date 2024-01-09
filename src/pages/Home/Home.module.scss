@@ -1,0 +1,30 @@
+.wrapper {
+    min-height: 1000px;
+    background-color: var(--background-home-page);
+}
+
+.home_page {
+    width: 100%;
+    height: 300px;
+    background-color: var(--white);
+}
+
+.introduce {
+    width: var(--default-layout-width);
+    height: 300px;
+    margin: 0 auto;
+}
+
+.null {
+    height: 20px;
+}
+.null_color_grey {
+    height: 20px;
+    background-color: var(--background-home-page);
+}
+
+.top_search {
+    width: var(--default-layout-width);
+    height: 300px;
+    margin: 0 auto;
+}

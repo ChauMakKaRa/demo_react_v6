@@ -1,0 +1,16 @@
+.wrapper {
+    background: transparent;
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    &:hover {
+        color: #b29a9a;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    margin: 0 5px;
+}

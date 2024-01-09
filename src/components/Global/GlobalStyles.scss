@@ -3,8 +3,14 @@
 
 :root {
     --primary: #fe2c55;
-    --default-layout-header-height: 60px;
+    --default-layout-header-height: 119px;
     --default-layout-width: 1150px;
+    // --background-header: linear-gradient(-180deg, #f53d2d, #f63);
+    --background-header: linear-gradient(-180deg, rgb(29, 8, 222), #2073d1);
+    // --background-header: linear-gradient(-180deg, rgb(5, 140, 34), #27c744);
+    --white: #fff;
+    --black: #333;
+    --background-home-page: #f4f4f4;
 }
 
 * {
@@ -21,4 +27,26 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+a[href] {
+    color: #fff;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
 }

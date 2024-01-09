@@ -1,10 +1,134 @@
 .wrapper {
     width: 100%;
-    height: var(--default-layout-header-height, 60px);
-    background: linear-gradient(-180deg, #f53d2d, #f63);
+    height: var(--default-layout-header-height, 119px);
+    background: var(--background-header);
+    color: var(--white);
 }
 
 .inner {
     height: 100%;
-    width: var(--default-layout-width);
+    max-width: var(--default-layout-width);
+}
+.navbar_top {
+    max-width: 1150px;
+    height: 35px;
+    margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    height: 35px;
+    align-items: center;
+}
+
+// navbar bottom
+
+.action {
+    display: flex;
+}
+.logo {
+    width: 180px;
+}
+
+.shop_drawer,
+.connect_fb,
+.notification,
+.support,
+.register,
+.login {
+    margin: 0 20px; /* Khoảng cách 20px theo chiều ngang */
+}
+
+.navbar__spacer {
+    flex: 1;
+}
+
+.navbar_center {
+    max-width: 1150px;
+    height: 60px;
+    padding-top: 8px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    width: 70%;
+    height: 46px;
+    background-color: var(--white);
+    border: 0;
+    border-radius: 50px;
+    padding-left: 16px;
+    border: 1.5px solid #2d30f5;
+    // border: 1.5px solid #f53d2d;
+
+    &:focus-within {
+        border-color: #070add;
+    }
+}
+.input_search {
+    height: 100%;
+    font-size: 1.6rem;
+    background: transparent;
+    flex: 1;
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: 68px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+}
+.clear {
+    background-color: var(--white);
+    color: #024aff;
+}
+
+.btn_search {
+    width: 52px;
+    height: 100%;
+    background: var(--white);
+    border-radius: 50px;
+    font-size: 1.8rem;
+    color: #2a1cf0;
+}
+
+// cart
+.cart {
+    display: flex;
+    height: 46px;
+    min-width: 100px;
+}
+
+.btn_cart {
+    color: var(--white);
+    background: transparent;
+
+    margin: 10px 60px;
+}
+
+.icon_cart {
+    flex: 1;
+    height: 30px;
+}
+
+// bottom navbar
+.navbar_bottom {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.category {
+    display: flex;
+}
+
+.nav_item {
+    margin: 0 18px;
+}
+
+.avatar {
+    border-radius: 50%;
 }
