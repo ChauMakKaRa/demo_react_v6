@@ -31,20 +31,20 @@ function Header() {
                 <nav className={styles.navbar}>
                     <div className={clsx(styles.center, styles.inner)}>
                         <div className={clsx(styles.shop_drawer)} id={clsx(styles.drawer_id_0)}>
-                            <Button to="/fridge">Tải ứng dụng</Button>
+                            <Button href="/down_load_app">Tải ứng dụng</Button>
                         </div>
                         <div className={clsx(styles.flex, styles.connect_fb)}>
-                            <Button to="/fridge" rightIcon={<FontAwesomeIcon icon={faFacebook} />}>
+                            <Button href="/connect_fb" rightIcon={<FontAwesomeIcon icon={faFacebook} />}>
                                 Kết nối
                             </Button>
                         </div>
                         <div className={clsx(styles.notification)}>
-                            <Button to="/fridge" rightIcon={<FontAwesomeIcon icon={faBell} />}>
+                            <Button href="/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
                                 Thông báo
                             </Button>
                         </div>
                         <div className={clsx(styles.support)}>
-                            <Button to="/fridge" rightIcon={<FontAwesomeIcon icon={faCircleQuestion} />}>
+                            <Button href="/support" rightIcon={<FontAwesomeIcon icon={faCircleQuestion} />}>
                                 Hỗ trợ
                             </Button>
                         </div>
@@ -76,7 +76,9 @@ function Header() {
             </div>
             <div className={clsx(styles.navbar_center)}>
                 <div className={clsx(styles.logo)}>
-                    <img src={images.logo} alt="logo" />
+                    <Button to='/'>
+                        <img src={images.logo} alt="logo" />
+                    </Button>
                 </div>
                 <div className={clsx(styles.search)}>
                     <input
@@ -104,25 +106,25 @@ function Header() {
                 <div className={clsx(styles.list_a)}>
                     <ul className={clsx(styles.category)}>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/fridge">Tủ lạnh</Button>
+                            <Button href="/detail?key=Tủ lạnh">Tủ lạnh</Button>
                         </li>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/washing">Máy giặt</Button>
+                            <Button href="/detail?key=Máy giặt">Máy giặt</Button>
                         </li>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/conditioner">Máy điều hòa</Button>
+                            <Button href="/detail?key=Điều hòa">Máy điều hòa</Button>
                         </li>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/purifier">Lọc nước</Button>
+                            <Button href="/detail?key=Lọc nước">Lọc nước</Button>
                         </li>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/cooker">Nồi cơm điện</Button>
+                            <Button href="/detail?key=Nồi cơm">Nồi cơm điện</Button>
                         </li>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/dried-dough">Nồi chiên</Button>
+                            <Button href="/detail?key=Nồi chiên">Nồi chiên</Button>
                         </li>
                         <li className={clsx(styles.nav_item)}>
-                            <Button to="/stove">Bếp điện</Button>
+                            <Button href="/detail?key=Bếp điện">Bếp điện</Button>
                         </li>
                     </ul>
                 </div>

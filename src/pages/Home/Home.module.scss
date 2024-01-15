@@ -1,5 +1,5 @@
 .wrapper {
-    min-height: 1000px;
+    height: 2000px;
     background-color: var(--background-home-page);
 }
 
@@ -27,4 +27,21 @@
     width: var(--default-layout-width);
     height: 300px;
     margin: 0 auto;
+}
+
+.latest_products {
+    width: var(--default-layout-width);
+    margin: 0 auto;
+}
+
+.upLong {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    &:hover {
+        color: red;
+        border: 1px solid red;
+    }
 }

@@ -1,0 +1,18 @@
+.wrapper {
+    margin-top: 20px;
+    background-color: var(--white);
+    height: 60px;
+    text-align: center;
+}
+
+.content {
+    color: #ee4d2d;
+    padding-top: 15px;
+}
+.underlined {
+    position: absolute;
+    margin-top: 20px;
+    width: var(--default-layout-width);
+    height: 0.25rem;
+    background-color: #ee4d2d;
+}

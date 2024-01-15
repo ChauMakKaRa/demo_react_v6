@@ -2,6 +2,7 @@ import { LayoutHeaderOnly } from '@/components/Layout';
 import Home from '@/pages/Home';
 import Follwing from '@/pages/Follwing';
 import Upload from '@/pages/Upload';
+import Detail from '@/pages/Detail';
 const publicRoutes = [
     {
         path: '/',
@@ -15,6 +16,10 @@ const publicRoutes = [
         path: '/upload',
         component: Upload,
         layout: LayoutHeaderOnly,
+    },
+    {
+        path: '/detail',
+        component: Detail,
     },
 ];
 
