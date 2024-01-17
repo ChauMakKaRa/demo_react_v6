@@ -1,23 +1,22 @@
-
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);  
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
-  }
-  
+}
+
 .product_list {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 100%; 
+    width: 100%;
     height: 315px;
     background-color: var(--white);
 
     &:hover {
         border: 1px solid red;
-    };
+    }
 }
-  
+
 .item {
     width: 100%;
     &:hover {
@@ -28,11 +27,10 @@
     text-align: center;
 }
 .image {
-    max-width: 210px; 
+    max-width: 210px;
     height: 210px;
-
 }
-  
+
 .name {
     margin-left: 10px;
     margin-top: 5px;
@@ -45,5 +43,4 @@
 .price {
     margin-left: 10px;
     color: red;
-
 }

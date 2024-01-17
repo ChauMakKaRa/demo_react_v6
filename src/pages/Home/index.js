@@ -12,7 +12,7 @@ import Suggest from './Suggest';
 import { faUpLong } from '@fortawesome/free-solid-svg-icons';
 function Home() {
     const [products, setProducts] = useState([]);
-    const [showGoToTop, setShowGoToTop] = useState(false)
+    const [showGoToTop, setShowGoToTop] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -28,17 +28,17 @@ function Home() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setShowGoToTop(window.scrollY >= 300)
-        }
-        window.addEventListener('scroll', handleScroll)
-    },[])
+            setShowGoToTop(window.scrollY >= 300);
+        };
+        window.addEventListener('scroll', handleScroll);
+    }, []);
 
     const handleGoToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: "smooth"
-          });
-    }
+            behavior: 'smooth',
+        });
+    };
     return (
         <div className={clsx(styles.wrapper)}>
             <div className={clsx(styles.home_page)}>
@@ -68,20 +68,18 @@ function Home() {
                     <NewProduct products={products} />
                 </div>
             </div>
-            {showGoToTop && 
-                (
-                    <button
-                        style={{
-                            position: 'fixed',
-                            right: 20,
-                            bottom: 20
-                        }}
-                        onClick={handleGoToTop}
-                    >
-                        <FontAwesomeIcon className={clsx(styles.upLong)} icon={faUpLong}/>
-                    </button>
-                )
-            }
+            {showGoToTop && (
+                <button
+                    style={{
+                        position: 'fixed',
+                        right: 20,
+                        bottom: 20,
+                    }}
+                    onClick={handleGoToTop}
+                >
+                    <FontAwesomeIcon className={clsx(styles.upLong)} icon={faUpLong} />
+                </button>
+            )}
         </div>
     );
 }

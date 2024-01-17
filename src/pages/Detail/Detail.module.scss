@@ -2,7 +2,6 @@
     max-width: var(--default-layout-width);
     margin: 0 auto;
     background-color: var(--background-home-page);
-    
 }
 
 .no_content {
@@ -27,7 +26,6 @@
 .icon_find {
     font-size: 18px;
     margin-right: 5px;
-
 }
 
 .item {
@@ -36,12 +34,11 @@
     &:hover {
         border: 1px solid red;
     }
-    
 }
 .product_detail {
     width: var(--default-layout-width);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);  
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     background-color: var(--background-home-page);
     border: 0;
@@ -51,11 +48,10 @@
     text-align: center;
 }
 .image {
-    max-width: 210px; 
+    max-width: 210px;
     height: 210px;
-
 }
-  
+
 .name {
     margin-left: 10px;
     margin-top: 5px;
@@ -63,11 +59,9 @@
 }
 
 .discount {
-    
     height: 20px;
 }
 .price {
     margin-left: 10px;
     color: red;
-
 }

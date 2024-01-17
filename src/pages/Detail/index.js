@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Detail.module.scss'
 import api from "@/config-api";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Button from "@/components/Button";
 function Detail() {
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -24,6 +25,7 @@ function Detail() {
 
         fetchData();
     }, []);
+
     return (
         <div className={clsx(styles.wrapper)}>
             <div className={clsx(styles.no_content)}></div>
@@ -34,7 +36,7 @@ function Detail() {
                 <div className={clsx(styles.no_content)}></div>
                 <div className={clsx(styles.product_detail)}>
                     {products.map((product) => (
-                        <div key={product.id} className={clsx(styles.product_list)}>
+                        <Button to={`/detail-product?id=${product.id}`} key={product.id}  className={clsx(styles.product_list)}>
                             <div className={clsx(styles.item)}>
                                 <div className={clsx(styles.images)}>
                                     <img className={clsx(styles.image)} src={product.image} alt={product.name} />
@@ -45,7 +47,7 @@ function Detail() {
                                     <div className={clsx(styles.price)}>{product.price} đ</div>
                                 </div>
                             </div>
-                        </div>
+                        </Button>
                     ))}
                 </div>
             </div>
