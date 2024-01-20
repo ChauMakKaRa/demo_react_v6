@@ -1,0 +1,89 @@
+.wrapper {
+    background-color: #ececec;
+    min-height: 800px;
+}
+.login {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: var(--default-layout-width);
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.background_login {
+    position: absolute;
+    width: var(--default-layout-width);
+    height: auto;
+}
+
+form {
+    position: relative;
+    padding: 20px;
+
+    width: 500px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #7a7474;
+    border-radius: 3px;
+}
+.in_form {
+    margin-top: 10%;
+    margin-left: 20%;
+    padding: 30px;
+    border: 1px solid ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.remember {
+    display: flex;
+}
+.checkbox {
+    margin: 0;
+    padding: 0;
+    width: 16px;
+}
+.error {
+    color: red;
+    height: 40px;
+    padding-top: 5px;
+}
+
+.btn_login {
+    padding: 7px;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: var(--white);
+    width: 100%;
+
+    &:hover {
+        background-color: #ff6281;
+    }
+}
+
+.content_login h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.no_account {
+    float: right;
+    margin-right: 5px;
+}
+
+.no_account_content {
+    color: red;
+
+    &:hover {
+        color: #ff6281;
+    }
+}

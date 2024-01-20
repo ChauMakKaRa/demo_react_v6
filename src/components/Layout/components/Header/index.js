@@ -15,19 +15,15 @@ import styles from './Header.module.scss';
 import images from '@/assets/images';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-export const logged = {
-    id: '',
-    email: '',
-    currentUser: 'false',
-};
+
 function Header() {
-    console.log(logged);
     const [search, setSearch] = useState('');
     const handleClear = () => {
         setSearch('');
         ref.current.focus();
     };
     const ref = useRef();
+    const logged = sessionStorage.getItem('id');
     return (
         <header className={clsx(styles.wrapper)}>
             <div className={clsx(styles.navbar_top)}>
@@ -54,7 +50,7 @@ function Header() {
                         <div className={clsx(styles.navbar__spacer)}></div>
 
                         <div className={clsx(styles.action)}>
-                            {logged.currentUser === 'true' ? (
+                            {logged ? (
                                 <>
                                     <img
                                         src={images.avatar_null}

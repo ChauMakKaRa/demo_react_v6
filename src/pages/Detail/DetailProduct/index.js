@@ -35,6 +35,7 @@ function DetailProduct() {
     }
 
     const handleAddToCart = async (id) => {
+        console.log(sessionStorage.getItem('id'));
         try {
             await axios.post(`${api.add_to_cart}?quantity=${count}&id=${id}`);
             console.log(count, id);

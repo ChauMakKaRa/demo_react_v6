@@ -6,6 +6,7 @@ const images = {
     introduce3: require('./introduce_3.png'),
     introduce4: require('./introduce_4.png'),
     introduce5: require('./introduce_5.png'),
+    background_login: require('./background_login.jpg'),
 };
 
 export default images;
