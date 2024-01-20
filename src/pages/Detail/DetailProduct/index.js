@@ -9,6 +9,7 @@ import Button from '@/components/Button';
 function DetailProduct() {
     const [count, setCount] = useState(1);
     const [product, setProduct] = useState('');
+    const [notifycation, setNotifycation] = useState('');
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
@@ -35,10 +36,12 @@ function DetailProduct() {
     }
 
     const handleAddToCart = async (id) => {
-        console.log(sessionStorage.getItem('id'));
+        const id_user = sessionStorage.getItem('id');
         try {
-            await axios.post(`${api.add_to_cart}?quantity=${count}&id=${id}`);
-            console.log(count, id);
+            const response = await axios.post(
+                `${api.add_to_cart}?quantity=${count}&id_product=${id}&id_user=${id_user}`,
+            );
+            setNotifycation(response.data.notifycation);
         } catch (error) {
             console.log(error);
         }
@@ -107,6 +110,9 @@ function DetailProduct() {
                             Thêm vào giỏ hàng
                         </Button>
                         <Button className={clsx(styles.btn_buy_now)}> Mua ngay</Button>
+                    </div>
+                    <div id="notification" className={clsx(styles.hidden)}>
+                        {notifycation}
                     </div>
                 </div>
             </div>
