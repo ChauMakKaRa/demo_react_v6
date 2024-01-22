@@ -21,6 +21,7 @@ function Login() {
             });
             sessionStorage.setItem('email', response.data.email);
             sessionStorage.setItem('id', response.data.id);
+            sessionStorage.setItem('_id', response.data._id);
             if (sessionStorage.getItem('id') !== 'undefined') {
                 navigate('/');
             } else {

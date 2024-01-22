@@ -52,6 +52,7 @@ function Header() {
                         <div className={clsx(styles.action)}>
                             {logged ? (
                                 <>
+                                    <span style={{ margin: 'auto 0' }}>{sessionStorage.getItem('email')}</span>
                                     <img
                                         src={images.avatar_null}
                                         alt="NVA"
@@ -96,9 +97,9 @@ function Header() {
                 </div>
 
                 <div className={clsx(styles.cart)}>
-                    <button className={clsx(styles.btn_cart)}>
+                    <Button to="/cart" className={clsx(styles.btn_cart)}>
                         <FontAwesomeIcon className={clsx(styles.icon_cart)} icon={faCartShopping} />
-                    </button>
+                    </Button>
                 </div>
             </div>
             <div className={clsx(styles.navbar_bottom)}>

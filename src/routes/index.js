@@ -6,6 +6,7 @@ import Detail from '@/pages/Detail';
 import DetailProduct from '@/pages/Detail/DetailProduct';
 import Login from '@/pages/Account/Login';
 import Register from '@/pages/Account/Register';
+import Cart from '@/pages/Cart';
 const publicRoutes = [
     {
         path: '/',
@@ -35,6 +36,10 @@ const publicRoutes = [
     {
         path: '/register',
         component: Register,
+    },
+    {
+        path: '/cart',
+        component: Cart,
     },
 ];
 

@@ -1,0 +1,64 @@
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.cart_page {
+    width: var(--default-layout-width);
+    margin: 0 auto;
+}
+
+.content_cart {
+    margin-top: 40px;
+    border-bottom: 2.5px solid var(--primary);
+    padding: 15px;
+    text-align: center;
+    color: var(--primary);
+    background-color: var(--white);
+}
+
+.no_content {
+    height: 20px;
+}
+.cart_table {
+    background-color: var(--white);
+}
+.input_count,
+.reduce,
+.increase {
+    border: 1px solid #ccc;
+    height: 50px;
+}
+.input_count {
+    text-align: center;
+    width: 70px;
+}
+
+.reduce,
+.increase {
+    width: 50px;
+}
+
+.div_center {
+    margin-top: 20px;
+}
+.p_center {
+    margin-top: 30px;
+}
+
+thead {
+    color: var(--primary);
+}
+
+.btn {
+    margin-top: 20px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover {
+        background-color: var(--hover);
+    }
+}

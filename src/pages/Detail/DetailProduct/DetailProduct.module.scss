@@ -94,21 +94,3 @@
 .no_contentx3 {
     height: 130px;
 }
-
-#notification {
-    display: block;
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    transition: opacity 0.3s;
-    opacity: 0; /* Bắt đầu ẩn đi */
-    z-index: 999;
-}
-
-.hidden {
-    display: none;
-}
