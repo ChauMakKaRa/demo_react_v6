@@ -1,4 +1,3 @@
-// import { Routes, Route } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,15 +14,32 @@ import styles from './Header.module.scss';
 import images from '@/assets/images';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
+import api from '@/config-api';
 
 function Header() {
     const [search, setSearch] = useState('');
+    const [quantity, setQuantity] = useState(0);
     const handleClear = () => {
         setSearch('');
         ref.current.focus();
     };
     const ref = useRef();
     const logged = sessionStorage.getItem('id');
+    // setQuantityProduct(response.data.item.length);
+    // console.log(quantityProduct);
+    if (logged) {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${api.cart}?user_id=${logged}`);
+                const data = response.data;
+                setQuantity(data[0].item.length);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }
     return (
         <header className={clsx(styles.wrapper)}>
             <div className={clsx(styles.navbar_top)}>
@@ -99,6 +115,7 @@ function Header() {
                 <div className={clsx(styles.cart)}>
                     <Button to="/cart" className={clsx(styles.btn_cart)}>
                         <FontAwesomeIcon className={clsx(styles.icon_cart)} icon={faCartShopping} />
+                        <span className={clsx(styles.quantity_product)}>{quantity}</span>
                     </Button>
                 </div>
             </div>

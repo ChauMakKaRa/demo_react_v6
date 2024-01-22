@@ -62,3 +62,12 @@ thead {
         background-color: var(--hover);
     }
 }
+
+.p_total {
+    visibility: hidden;
+}
+
+.btn_delete_cart {
+    color: var(--primary);
+    background-color: transparent;
+}
