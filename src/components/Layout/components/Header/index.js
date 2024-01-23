@@ -35,7 +35,7 @@ function Header() {
                 const data = response.data;
                 setQuantity(data[0].item.length);
             } catch (error) {
-                console.log(error);
+                setQuantity(0);
             }
         };
         fetchData();

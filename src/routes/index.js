@@ -7,6 +7,7 @@ import DetailProduct from '@/pages/Detail/DetailProduct';
 import Login from '@/pages/Account/Login';
 import Register from '@/pages/Account/Register';
 import Cart from '@/pages/Cart';
+import Pay from '@/pages/Pay';
 const publicRoutes = [
     {
         path: '/',
@@ -40,6 +41,10 @@ const publicRoutes = [
     {
         path: '/cart',
         component: Cart,
+    },
+    {
+        path: '/pay',
+        component: Pay,
     },
 ];
 
