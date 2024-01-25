@@ -1,0 +1,48 @@
+.pay {
+    width: var(--default-layout-width);
+    background-color: var(--white);
+    margin: 0 auto;
+}
+
+.no_content {
+    height: 25px;
+    background-color: var(--background-home-page);
+}
+
+.content_pay {
+    padding: 20px;
+    border-bottom: 2.5px solid var(--primary);
+    color: var(--primary);
+    text-align: center;
+}
+
+// đơn hàng ordered
+
+.ordered {
+    background-color: var(--white);
+}
+
+// PHƯƠNG THỨC THANH TOÁN
+.payment_method {
+    padding: 20px;
+    border: 1px solid var(--background-home-page);
+}
+
+// tổng thanh toán
+.total_payment {
+    padding: 20px;
+}
+
+// mua ngay
+.pay_now {
+    border-radius: 5px;
+    margin: 20px 0 20px 20px;
+    width: 80%;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 10px;
+
+    &:hover {
+        background-color: var(--hover);
+    }
+}

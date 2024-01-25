@@ -1,0 +1,72 @@
+.address {
+    background-color: var(--white);
+}
+.image_top {
+    background-image: repeating-linear-gradient(
+        45deg,
+        #6fa6d6,
+        #6fa6d6 33px,
+        transparent 0,
+        transparent 41px,
+        #f18d9b 0,
+        #f18d9b 74px,
+        transparent 0,
+        transparent 82px
+    );
+    background-position-x: -30px;
+    background-size: 116px 3px;
+    height: 3px;
+    width: 100%;
+}
+
+.iconLocationDot {
+    color: var(--primary);
+    padding: 20px;
+}
+
+#nameAndAddress {
+    padding: 20px;
+}
+
+.btn {
+    color: var(--primary);
+    background-color: transparent;
+}
+
+.btn_add_address {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-left: 40%;
+}
+
+.input_add_address {
+    border: 0.5px solid #ccc;
+}
+
+.btn_add {
+    color: var(--white);
+    background-color: var(--primary);
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 26%;
+    width: 340px;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: var(--hover);
+    }
+}
+
+// cập nhật thay đổi địa chỉ
+.btn_choose_address {
+    color: var(--black);
+    background-color: #ccc;
+    width: 100px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: var(--hover);
+        color: white;
+    }
+}

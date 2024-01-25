@@ -8,6 +8,7 @@ import Login from '@/pages/Account/Login';
 import Register from '@/pages/Account/Register';
 import Cart from '@/pages/Cart';
 import Pay from '@/pages/Pay';
+import Ordered from '@/pages/Ordered';
 const publicRoutes = [
     {
         path: '/',
@@ -45,6 +46,10 @@ const publicRoutes = [
     {
         path: '/pay',
         component: Pay,
+    },
+    {
+        path: '/ordered',
+        component: Ordered,
     },
 ];
 

@@ -5,6 +5,8 @@ const api = {
     cart: 'http://localhost:3001/api/cart',
     login: 'http://localhost:3001/api/login',
     register: 'http://localhost:3001/api/register',
+    user: 'http://localhost:3001/api/user',
+    order: 'http://localhost:3001/api/order',
 };
 
 export default api;
