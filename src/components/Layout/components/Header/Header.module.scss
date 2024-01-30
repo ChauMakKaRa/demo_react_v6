@@ -114,6 +114,17 @@
 .icon_cart {
     flex: 1;
     height: 30px;
+    color: var(--white);
+}
+.quantity_product {
+    color: var(--white);
+}
+.center a[href] {
+    color: var(--white);
+}
+
+li a[href] {
+    color: var(--white);
 }
 
 // bottom navbar
@@ -132,4 +143,25 @@
 
 .avatar {
     border-radius: 50%;
+}
+
+// dropdown
+.dropdown_menu_opption {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 40px;
+    margin-left: 110px;
+    border-radius: 5px;
+}
+
+.dropdown_menu {
+    color: black;
+    margin: 0 auto;
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
 }

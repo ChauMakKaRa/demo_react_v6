@@ -1,0 +1,26 @@
+.input_count,
+.reduce,
+.increase {
+    border: 1px solid #ccc;
+    height: 50px;
+}
+.input_count {
+    text-align: center;
+    width: 70px;
+}
+
+.div_center {
+    margin-top: 20px;
+}
+.p_center {
+    margin-top: 30px;
+}
+
+thead {
+    color: var(--primary);
+}
+
+.btn_delete_cart {
+    color: var(--primary);
+    background-color: transparent;
+}

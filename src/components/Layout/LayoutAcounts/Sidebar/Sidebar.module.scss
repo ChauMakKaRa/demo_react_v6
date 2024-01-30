@@ -1,0 +1,36 @@
+.avatar_name {
+    display: flex;
+    padding: 22.5px;
+    border-bottom: 1.5px solid #ccc;
+}
+.Log_out {
+    padding: 25px;
+}
+.image {
+    border-radius: 50%;
+}
+
+.name {
+    padding: 10px;
+}
+.my_account {
+    color: black;
+    margin-top: 20px;
+}
+
+.dropdown_my_account {
+    padding-left: 34px;
+}
+
+.btn_in_dropdown {
+    margin: 10px 0;
+}
+
+.my_account button,
+.order {
+    margin: 0px 0 10px 0;
+}
+
+a[href] {
+    color: black;
+}

@@ -1,11 +1,17 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+    faCaretDown,
+    faCartArrowDown,
     faCartShopping,
     faCircleQuestion,
     faCircleXmark,
     faMagnifyingGlass,
+    faRightFromBracket,
+    faUser,
     // faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,14 +26,15 @@ import api from '@/config-api';
 function Header() {
     const [search, setSearch] = useState('');
     const [quantity, setQuantity] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const [user, setUser] = useState('');
     const handleClear = () => {
         setSearch('');
         ref.current.focus();
     };
     const ref = useRef();
     const logged = sessionStorage.getItem('id');
-    // setQuantityProduct(response.data.item.length);
-    // console.log(quantityProduct);
     if (logged) {
         const fetchData = async () => {
             try {
@@ -40,6 +47,24 @@ function Header() {
         };
         fetchData();
     }
+    const handleLogOut = () => {
+        sessionStorage.removeItem('id');
+        navigate('/login');
+        setIsOpen(!isOpen);
+    };
+    useEffect(() => {
+        const fetchData = async () => {
+            const id_user = sessionStorage.getItem('_id');
+            try {
+                const respones = await axios.get(`${api.user}?userId=${id_user}`);
+                const data = respones.data;
+                setUser(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
     return (
         <header className={clsx(styles.wrapper)}>
             <div className={clsx(styles.navbar_top)}>
@@ -70,11 +95,49 @@ function Header() {
                                 <>
                                     <span style={{ margin: 'auto 0' }}>{sessionStorage.getItem('email')}</span>
                                     <img
-                                        src={images.avatar_null}
+                                        src={user.avatar}
                                         alt="NVA"
                                         className={clsx(styles.avatar)}
                                         width={30}
+                                        height={30}
                                     />
+                                    <Button
+                                        className={clsx(styles.dropdown_togger)}
+                                        onClick={() => setIsOpen(!isOpen)}
+                                        style={{
+                                            backgroundColor: 'rgb(29, 8, 222)',
+                                            color: 'white',
+                                            marginLeft: '5px',
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faCaretDown} />
+                                    </Button>
+                                    {isOpen && (
+                                        <div className={clsx(styles.dropdown_menu_opption)}>
+                                            <Button to="/my-account" className={clsx(styles.dropdown_menu)}>
+                                                <span style={{ color: 'black' }}>Tài khoản</span>
+                                                <FontAwesomeIcon
+                                                    style={{ marginLeft: '10px', color: '#fe2c55' }}
+                                                    icon={faUser}
+                                                />
+                                            </Button>
+                                            <Button to="/ordered" className={clsx(styles.dropdown_menu)}>
+                                                <span style={{ color: 'black' }}> Đơn hàng</span>
+                                                <FontAwesomeIcon
+                                                    style={{ marginLeft: '10px', color: '#fe2c55' }}
+                                                    icon={faCartArrowDown}
+                                                />
+                                            </Button>
+                                            <Button className={clsx(styles.dropdown_menu)} onClick={handleLogOut}>
+                                                <span style={{ color: 'black' }}>Đăng xuất</span>
+
+                                                <FontAwesomeIcon
+                                                    style={{ marginLeft: '10px', color: '#fe2c55' }}
+                                                    icon={faRightFromBracket}
+                                                />
+                                            </Button>
+                                        </div>
+                                    )}
                                 </>
                             ) : (
                                 <>

@@ -7,6 +7,8 @@ const api = {
     register: 'http://localhost:3001/api/register',
     user: 'http://localhost:3001/api/user',
     order: 'http://localhost:3001/api/order',
+    detailorder: 'http://localhost:3001/api/detailorder',
+    my_account: 'http://localhost:3001/api/my-account',
 };
 
 export default api;

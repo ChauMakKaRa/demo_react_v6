@@ -1,6 +1,6 @@
-.order_page {
-    background-color: var(--white);
+.order_detail_page {
     width: var(--default-layout-width);
+    background-color: var(--white);
     margin: 0 auto;
 }
 
@@ -9,13 +9,9 @@
     background-color: var(--background-home-page);
 }
 
-.table {
+.content_order_detail {
     padding: 20px;
-}
-
-.content_order {
-    padding: 20px;
-    border-bottom: 2.5px solid var(--primary);
     color: var(--primary);
     text-align: center;
+    border-bottom: 2.5px solid var(--primary);
 }

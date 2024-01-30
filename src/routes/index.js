@@ -1,4 +1,4 @@
-import { LayoutHeaderOnly } from '@/components/Layout';
+import { LayoutAccount, LayoutHeaderOnly } from '@/components/Layout';
 import Home from '@/pages/Home';
 import Follwing from '@/pages/Follwing';
 import Upload from '@/pages/Upload';
@@ -9,6 +9,9 @@ import Register from '@/pages/Account/Register';
 import Cart from '@/pages/Cart';
 import Pay from '@/pages/Pay';
 import Ordered from '@/pages/Ordered';
+import OrderDetail from '@/pages/OrderDetail';
+import MyAccount from '@/pages/Account/MyAccount';
+import PayMent from '@/pages/Account/PayMent';
 const publicRoutes = [
     {
         path: '/',
@@ -22,6 +25,11 @@ const publicRoutes = [
         path: '/upload',
         component: Upload,
         layout: LayoutHeaderOnly,
+    },
+    {
+        path: '/my-account/payment',
+        component: PayMent,
+        layout: LayoutAccount,
     },
     {
         path: '/detail',
@@ -50,6 +58,15 @@ const publicRoutes = [
     {
         path: '/ordered',
         component: Ordered,
+    },
+    {
+        path: '/ordered/detail',
+        component: OrderDetail,
+    },
+    {
+        path: '/my-account',
+        component: MyAccount,
+        layout: LayoutAccount,
     },
 ];
 
