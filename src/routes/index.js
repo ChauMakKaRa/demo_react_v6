@@ -16,6 +16,8 @@ import Address from '@/pages/Account/Address';
 import ChangePassword from '@/pages/Account/ChangePassword';
 import ListOrder from '@/pages/Account/Order';
 import ResultSearch from '@/pages/Search';
+import Notification from '@/pages/Account/Notification';
+import Support from '@/pages/Support';
 const publicRoutes = [
     {
         path: '/',
@@ -88,8 +90,17 @@ const publicRoutes = [
         layout: LayoutAccount,
     },
     {
+        path: '/my-account/notification',
+        component: Notification,
+        layout: LayoutAccount,
+    },
+    {
         path: '/search',
         component: ResultSearch,
+    },
+    {
+        path: '/support',
+        component: Support,
     },
 ];
 

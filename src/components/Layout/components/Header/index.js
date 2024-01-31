@@ -82,7 +82,7 @@ function Header() {
                             </Button>
                         </div>
                         <div className={clsx(styles.notification)}>
-                            <Button href="/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
+                            <Button href="/my-account/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
                                 Thông báo
                             </Button>
                         </div>
