@@ -1,0 +1,24 @@
+.address_page {
+    min-height: 500px;
+}
+
+.content_address {
+    padding: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.btn_add,
+.btn_delete {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn_add {
+    padding: 10px;
+}
+.btn_delete {
+    margin-top: 20px;
+    margin-left: 20px;
+}

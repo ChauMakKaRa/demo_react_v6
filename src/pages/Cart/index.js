@@ -19,12 +19,11 @@ function Cart() {
                 const user_id = sessionStorage.getItem('id');
                 const response = await axios.get(`${api.cart}?user_id=${user_id}`);
                 const data = response.data;
-                console.log(data);
-                // data.forEach((cart) => {
-                //     const quantityTotal = cart.item.reduce((total, currentItem) => total + currentItem.quantity, 0);
-                //     setQuantityCart(quantityTotal);
-                //     setCarts(cart.item);
-                // });
+                data.forEach((cart) => {
+                    const quantityTotal = cart.item.reduce((total, currentItem) => total + currentItem.quantity, 0);
+                    setQuantityCart(quantityTotal);
+                    setCarts(cart.item);
+                });
             } catch (error) {
                 console.log(error);
             }
@@ -57,12 +56,16 @@ function Cart() {
                             <div className="col-sm-8"></div>
                             <div className="col-sm-2">
                                 <Button className={clsx(styles.btn_buying, styles.btn)}>
-                                    <Button to="/">Tiếp tục mua hàng</Button>
+                                    <Button to="/" style={{ color: 'white' }}>
+                                        Tiếp tục mua hàng
+                                    </Button>
                                 </Button>
                             </div>
                             <div className="col-sm-2">
                                 <Button className={clsx(styles.btn_pay, styles.btn)}>
-                                    <Button to="/pay">Thanh toán</Button>
+                                    <Button to="/pay" style={{ color: 'white' }}>
+                                        Thanh toán
+                                    </Button>
                                 </Button>
                             </div>
                         </div>

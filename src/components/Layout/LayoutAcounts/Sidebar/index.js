@@ -35,7 +35,7 @@ function Sidebar() {
                             </div>
                             <div className={clsx(styles.btn_in_dropdown)}>
                                 <Button
-                                    to="payment"
+                                    to="/my-account/payment"
                                     onClick={() => setSelectedTab('payment')}
                                     style={{ color: selectedTab === 'payment' ? 'red' : 'black' }}
                                 >
@@ -44,7 +44,7 @@ function Sidebar() {
                             </div>
                             <div className={clsx(styles.btn_in_dropdown)}>
                                 <Button
-                                    to="address"
+                                    to="/my-account/address"
                                     onClick={() => setSelectedTab('address')}
                                     style={{ color: selectedTab === 'address' ? 'red' : 'black' }}
                                 >
@@ -53,7 +53,7 @@ function Sidebar() {
                             </div>
                             <div className={clsx(styles.btn_in_dropdown)}>
                                 <Button
-                                    to="change-password"
+                                    to="/my-account/change-password"
                                     onClick={() => setSelectedTab('change-password')}
                                     style={{ color: selectedTab === 'change-password' ? 'red' : 'black' }}
                                 >
@@ -66,7 +66,7 @@ function Sidebar() {
             </div>
             <div className={clsx(styles.order)}>
                 <Button
-                    to="order"
+                    to="/my-account/order"
                     onClick={() => setSelectedTab('order')}
                     style={{ color: selectedTab === 'change-password' ? 'red' : 'black' }}
                 >
@@ -76,7 +76,7 @@ function Sidebar() {
             </div>
             <div className={clsx(styles.notification)}>
                 <Button
-                    to="notification"
+                    to="/my-account/notification"
                     onClick={() => setSelectedTab('notification')}
                     style={{ color: selectedTab === 'change-password' ? 'red' : 'black' }}
                 >

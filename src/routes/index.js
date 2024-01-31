@@ -12,6 +12,10 @@ import Ordered from '@/pages/Ordered';
 import OrderDetail from '@/pages/OrderDetail';
 import MyAccount from '@/pages/Account/MyAccount';
 import PayMent from '@/pages/Account/PayMent';
+import Address from '@/pages/Account/Address';
+import ChangePassword from '@/pages/Account/ChangePassword';
+import ListOrder from '@/pages/Account/Order';
+import ResultSearch from '@/pages/Search';
 const publicRoutes = [
     {
         path: '/',
@@ -67,6 +71,25 @@ const publicRoutes = [
         path: '/my-account',
         component: MyAccount,
         layout: LayoutAccount,
+    },
+    {
+        path: '/my-account/address',
+        component: Address,
+        layout: LayoutAccount,
+    },
+    {
+        path: '/my-account/change-password',
+        component: ChangePassword,
+        layout: LayoutAccount,
+    },
+    {
+        path: '/my-account/order',
+        component: ListOrder,
+        layout: LayoutAccount,
+    },
+    {
+        path: '/search',
+        component: ResultSearch,
     },
 ];
 

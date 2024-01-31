@@ -29,11 +29,13 @@ function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const [user, setUser] = useState('');
+
+    const ref = useRef();
     const handleClear = () => {
         setSearch('');
         ref.current.focus();
     };
-    const ref = useRef();
+
     const logged = sessionStorage.getItem('id');
     if (logged) {
         const fetchData = async () => {
@@ -65,6 +67,7 @@ function Header() {
         };
         fetchData();
     }, []);
+
     return (
         <header className={clsx(styles.wrapper)}>
             <div className={clsx(styles.navbar_top)}>
@@ -170,9 +173,22 @@ function Header() {
                     <button type="button" onClick={handleClear} className={clsx(styles.clear)}>
                         {search && <FontAwesomeIcon icon={faCircleXmark} />}
                     </button>
-                    <button type="button" className={clsx(styles.btn, styles.btn_solid_primary, styles.btn_search)}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
+                    {search ? (
+                        <Button
+                            href={`/search?keyword=${search}`}
+                            style={{ padding: '10px', color: 'blue' }}
+                            className={clsx(styles.btn, styles.btn_solid_primary, styles.btn_search)}
+                        >
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </Button>
+                    ) : (
+                        <Button
+                            style={{ padding: '10px 25px 10px 10px', color: 'blue' }}
+                            className={clsx(styles.btn, styles.btn_solid_primary, styles.btn_search)}
+                        >
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </Button>
+                    )}
                 </div>
 
                 <div className={clsx(styles.cart)}>
