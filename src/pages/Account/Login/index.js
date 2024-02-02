@@ -22,8 +22,11 @@ function Login() {
             sessionStorage.setItem('email', response.data.email);
             sessionStorage.setItem('id', response.data.id);
             sessionStorage.setItem('_id', response.data._id);
-            if (sessionStorage.getItem('id') !== 'undefined') {
+            sessionStorage.setItem('roles', response.data.roles);
+            if (sessionStorage.getItem('roles') === 'User') {
                 navigate('/');
+            } else if (sessionStorage.getItem('roles') === 'Admin') {
+                navigate('/admin');
             } else {
                 setError(response.data.error);
                 ref.current.focus();

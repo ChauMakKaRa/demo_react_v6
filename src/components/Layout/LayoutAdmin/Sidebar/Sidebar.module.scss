@@ -1,0 +1,50 @@
+.sidebar_brand {
+    height: 70px;
+}
+
+.brand_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 0.8rem;
+}
+
+.sidebar_user {
+    margin: 1rem 0rem 1rem 0rem;
+    text-align: center;
+}
+.image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid #efefef;
+}
+
+.sidebar_menu {
+    margin-top: 3rem;
+}
+
+.menu_head {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.sidebar ul {
+    margin-bottom: 1.5rem;
+}
+
+.li_a {
+    color: #efefef;
+    background-color: transparent;
+}
+
+.sidebar_menu li {
+    margin-bottom: 0.8rem;
+}

@@ -18,6 +18,18 @@ import ListOrder from '@/pages/Account/Order';
 import ResultSearch from '@/pages/Search';
 import Notification from '@/pages/Account/Notification';
 import Support from '@/pages/Support';
+import HomeAdminPage from '@/adminpage/HomeAdmin';
+import LayoutAdmin from '@/components/Layout/LayoutAdmin';
+import OrderPageAdmin from '@/adminpage/Order';
+import InconePageAdmin from '@/adminpage/Incone';
+import ProjectPageAdmin from '@/adminpage/Order';
+import ContactPageAdmin from '@/adminpage/ContactPageAdmin';
+import ManangerAccount from '@/adminpage/ManangerAccount';
+import WareHouse from '@/adminpage/WareHouse';
+import Shippement from '@/adminpage/Shippement';
+import Notifications from '@/adminpage/Notifications';
+import ReportsAndStatistics from '@/adminpage/ReportsAndStatistics';
+// import { LayoutHeaderAdmin } from '@/components/LayoutAdmin';
 const publicRoutes = [
     {
         path: '/',
@@ -101,6 +113,62 @@ const publicRoutes = [
     {
         path: '/support',
         component: Support,
+    },
+    {
+        path: '/admin',
+        component: HomeAdminPage,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/order',
+        component: OrderPageAdmin,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/incone',
+        component: InconePageAdmin,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/project',
+        component: ProjectPageAdmin,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/admin/account',
+        component: ManangerAccount,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/admin/contact',
+        component: ContactPageAdmin,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/admin/ware-house',
+        component: WareHouse,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/admin/order',
+        component: OrderPageAdmin,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/admin/shippement',
+        component: Shippement,
+        layout: LayoutAdmin,
+    },
+    {
+        path: '/admin/notification',
+        component: Notifications,
+        layout: LayoutAdmin,
+    },
+
+    {
+        path: '/admin/reports-statistics',
+        component: ReportsAndStatistics,
+        layout: LayoutAdmin,
     },
 ];
 

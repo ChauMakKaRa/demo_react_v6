@@ -1,0 +1,37 @@
+.menu_toggle label {
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 23px;
+    height: 60px;
+    width: 60px;
+    display: grid;
+}
+.header_icon {
+    display: inline-block;
+    margin-left: 0.7rem;
+    font-size: 1.4rem;
+}
+.menu_toggle label:hover {
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+.search {
+    display: flex;
+}
+.input_search {
+    border: 1px solid #ccc;
+    border-right: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.btn_search {
+    height: 45.6px;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: #fff;
+    padding: 0 15px 0 15px;
+}
