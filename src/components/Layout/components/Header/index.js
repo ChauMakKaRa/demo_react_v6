@@ -51,6 +51,7 @@ function Header() {
     }
     const handleLogOut = () => {
         sessionStorage.removeItem('id');
+        sessionStorage.removeItem('roles');
         navigate('/login');
         setIsOpen(!isOpen);
     };

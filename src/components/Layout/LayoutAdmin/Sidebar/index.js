@@ -6,23 +6,47 @@ import {
     faBell,
     faChartSimple,
     faContactBook,
+    faRightToBracket,
     faTruck,
     faUser,
     faUserCircle,
     faWarehouse,
 } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
+import images from '@/assets/images';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import api from '@/config-api';
 
 function Sidebar() {
+    const navigate = useNavigate();
+    const [admin, setAdmin] = useState('');
+
+    useEffect(() => {
+        const admin_id = sessionStorage.getItem('_id');
+        const fetchData = async () => {
+            try {
+                const respones = await axios.get(`${api.admin}?adminId=${admin_id}`);
+                const data = respones.data;
+                setAdmin(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('id');
+        sessionStorage.removeItem('roles');
+        navigate('/login');
+    };
     return (
         <>
             <div className={clsx(styles.sidebar_brand)}>
                 <div className={clsx(styles.brand_flex)}>
-                    <img
-                        src="https://inkythuatso.com/uploads/thumbnails/800/2023/03/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg"
-                        width={30}
-                        alt="avatar"
-                    />
+                    <img src={images.logo} width={120} alt="avatar" />
 
                     <div className={clsx(styles.brand_icons)}>
                         <FontAwesomeIcon icon={faBell} />
@@ -33,14 +57,10 @@ function Sidebar() {
 
             <div className={clsx(styles.sidebar_main)}>
                 <div className={clsx(styles.sidebar_user)}>
-                    <img
-                        src="https://inkythuatso.com/uploads/thumbnails/800/2023/03/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg"
-                        className={clsx(styles.image)}
-                        alt="avatar user"
-                    />
+                    <img src={admin.avatar} className={clsx(styles.image)} alt="avatar user" />
                     <div>
-                        <h3 className={clsx(styles.name)}>Tên</h3>
-                        <span className={clsx(styles.email)}> gmail.com</span>
+                        <h3 className={clsx(styles.name)}>{admin.name}</h3>
+                        <span className={clsx(styles.email)}> {admin.email}</span>
                     </div>
                 </div>
 
@@ -102,6 +122,12 @@ function Sidebar() {
                             </Button>
                         </li>
                     </ul>
+                </div>
+                <div className={clsx(styles.log_out)}>
+                    <Button className={clsx(styles.btn_log_out)} onClick={handleLogout}>
+                        <span>ĐĂNG XUẤT</span>
+                        <FontAwesomeIcon icon={faRightToBracket} />
+                    </Button>
                 </div>
             </div>
         </>

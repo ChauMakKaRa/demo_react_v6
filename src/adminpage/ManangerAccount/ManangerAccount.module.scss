@@ -1,0 +1,131 @@
+.wrapper {
+    width: var(--default-layout-width);
+    margin: 0 auto;
+}
+
+.mananger_account_page {
+    background: #fff;
+}
+
+.head_manager {
+    display: flex;
+    padding: 1rem;
+    background: #8c8b8b;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.no_content {
+    flex: 1;
+}
+
+.user_list_container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.content_manager,
+.delete_account,
+.add_account {
+    padding: 1rem;
+    cursor: pointer;
+}
+.delete_account {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.add_account {
+    background: rgb(17, 216, 17);
+    margin: 0 1rem;
+    border-radius: 3px;
+}
+
+.head_table {
+    background: #fff;
+    height: 3rem;
+    margin-top: 1.5rem;
+    border-radius: 3px;
+
+    box-shadow: 0px 2px 0px 0px #262626;
+}
+
+.main_table {
+    height: 4rem;
+    padding-top: 1rem;
+    background: #e1e1e1;
+    border: 0.1rem solid #edebeb;
+
+    &:hover {
+        background: #fbe6e6;
+    }
+}
+
+.repair {
+    cursor: pointer;
+    color: yellow;
+    padding: 0 10px;
+}
+
+.delete {
+    cursor: pointer;
+    color: red;
+    padding: 0 20px;
+}
+
+.form_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.form_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    z-index: 10000;
+}
+
+.delete_form {
+    color: red;
+    float: right;
+    padding-right: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.content_add {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.form_overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.form_container2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1001;
+    border: 1px solid #000;
+}

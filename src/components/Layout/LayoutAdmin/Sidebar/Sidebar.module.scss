@@ -48,3 +48,23 @@
 .sidebar_menu li {
     margin-bottom: 0.8rem;
 }
+
+.log_out {
+    position: fixed;
+    bottom: 1rem;
+    width: 100%;
+}
+
+.btn_log_out {
+    height: 40px;
+    width: 16%;
+    background: white;
+    color: var(--main-color);
+
+    &:hover {
+        color: var(--primary);
+    }
+}
+.btn_log_out span {
+    margin-right: 1rem;
+}
