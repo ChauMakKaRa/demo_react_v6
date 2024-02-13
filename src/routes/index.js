@@ -1,4 +1,4 @@
-import { LayoutAccount, LayoutAdminNoHeader, LayoutHeaderOnly } from '@/components/Layout';
+import { LayoutAccount, LayoutAdminNoHeader, LayoutHeaderOnly, LayoutShipper } from '@/components/Layout';
 import Home from '@/pages/Home';
 import Follwing from '@/pages/Follwing';
 import Upload from '@/pages/Upload';
@@ -30,6 +30,8 @@ import Shippement from '@/adminpage/Shippement';
 import Notifications from '@/adminpage/Notifications';
 import ReportsAndStatistics from '@/adminpage/ReportsAndStatistics';
 import Contact from '@/pages/Contact';
+import ShipperPage from '@/carrierpage/Shipper';
+import RepairPage from '@/carrierpage/Repair';
 // import { LayoutHeaderAdmin } from '@/components/LayoutAdmin';
 const publicRoutes = [
     {
@@ -171,6 +173,18 @@ const publicRoutes = [
         path: '/admin/reports-statistics',
         component: ReportsAndStatistics,
         layout: LayoutAdminNoHeader,
+    },
+
+    // shipper
+    {
+        path: '/carreir/shipper',
+        component: ShipperPage,
+        layout: LayoutShipper,
+    },
+    {
+        path: '/carreir/repair',
+        component: RepairPage,
+        layout: LayoutShipper,
     },
 ];
 
