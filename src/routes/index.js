@@ -1,4 +1,4 @@
-import { LayoutAccount, LayoutHeaderOnly } from '@/components/Layout';
+import { LayoutAccount, LayoutAdminNoHeader, LayoutHeaderOnly } from '@/components/Layout';
 import Home from '@/pages/Home';
 import Follwing from '@/pages/Follwing';
 import Upload from '@/pages/Upload';
@@ -29,6 +29,7 @@ import WareHouse from '@/adminpage/WareHouse';
 import Shippement from '@/adminpage/Shippement';
 import Notifications from '@/adminpage/Notifications';
 import ReportsAndStatistics from '@/adminpage/ReportsAndStatistics';
+import Contact from '@/pages/Contact';
 // import { LayoutHeaderAdmin } from '@/components/LayoutAdmin';
 const publicRoutes = [
     {
@@ -115,22 +116,23 @@ const publicRoutes = [
         component: Support,
     },
     {
+        path: '/contact',
+        component: Contact,
+    },
+
+    // admin
+    {
         path: '/admin',
         component: HomeAdminPage,
         layout: LayoutAdmin,
     },
     {
-        path: '/order',
-        component: OrderPageAdmin,
-        layout: LayoutAdmin,
-    },
-    {
-        path: '/incone',
+        path: '/admin/incone',
         component: InconePageAdmin,
         layout: LayoutAdmin,
     },
     {
-        path: '/project',
+        path: '/admin/project',
         component: ProjectPageAdmin,
         layout: LayoutAdmin,
     },
@@ -142,12 +144,12 @@ const publicRoutes = [
     {
         path: '/admin/contact',
         component: ContactPageAdmin,
-        layout: LayoutAdmin,
+        layout: LayoutAdminNoHeader,
     },
     {
         path: '/admin/ware-house',
         component: WareHouse,
-        layout: LayoutAdmin,
+        layout: LayoutAdminNoHeader,
     },
     {
         path: '/admin/order',
@@ -162,13 +164,13 @@ const publicRoutes = [
     {
         path: '/admin/notification',
         component: Notifications,
-        layout: LayoutAdmin,
+        layout: LayoutAdminNoHeader,
     },
 
     {
         path: '/admin/reports-statistics',
         component: ReportsAndStatistics,
-        layout: LayoutAdmin,
+        layout: LayoutAdminNoHeader,
     },
 ];
 

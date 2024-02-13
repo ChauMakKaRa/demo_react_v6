@@ -3,20 +3,51 @@ import styles from './Main.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faCircleDollarToSlot, faScrewdriverWrench, faUsers } from '@fortawesome/free-solid-svg-icons';
 import Button from '@/components/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import api from '@/config-api';
 
 function Main() {
     const [selectedTab, setSelectedTab] = useState(null);
+    const [users, setUsers] = useState([]);
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        const admin_id = sessionStorage.getItem('_id');
+        const fetchData = async () => {
+            try {
+                const respones = await axios.get(`${api.userexceptadmin}?adminId=${admin_id}`);
+                const data = respones.data;
+                setUsers(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const respones = await axios.get(`${api.get_all_order}`);
+                const data = respones.data;
+                setOrders(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
     return (
         <>
             <div className={clsx(styles.cards)}>
                 <Button
-                    to={'/admin'}
+                    to={'/admin/account'}
                     className={clsx(styles.card_single)}
-                    onClick={() => setSelectedTab('admin')}
+                    onClick={() => setSelectedTab('account')}
                     style={{
-                        background: selectedTab === 'admin' ? '#fe2c55' : 'white',
-                        color: selectedTab === 'admin' ? 'white' : '#fe2c55',
+                        background: selectedTab === 'account' ? '#fe2c55' : 'white',
+                        color: selectedTab === 'account' ? 'white' : '#fe2c55',
                     }}
                 >
                     <div>
@@ -26,7 +57,7 @@ function Main() {
                                     <span>Khách hàng</span>
                                     <small>Số lượng khách hàng </small>
                                 </div>
-                                <h2>54</h2>
+                                <h2>{users.length}</h2>
                                 <small>Customer</small>
                             </div>
                             <div className={clsx(styles.card_chart)}>
@@ -38,7 +69,7 @@ function Main() {
 
                 {/* {} */}
                 <Button
-                    to={'/order'}
+                    to={'/admin/order'}
                     onClick={() => setSelectedTab('order')}
                     style={{
                         background: selectedTab === 'order' ? '#fe2c55' : 'white',
@@ -52,7 +83,7 @@ function Main() {
                                     <span>Đơn hàng</span>
                                     <small>Số lượng đơn hàng</small>
                                 </div>
-                                <h2>124</h2>
+                                <h2>{orders.length}</h2>
                                 <small>Order</small>
                             </div>
                             <div className={clsx(styles.card_chart)}>
@@ -66,7 +97,7 @@ function Main() {
                 </Button>
                 {/* {} */}
                 <Button
-                    to={'/project'}
+                    to={'/admin/project'}
                     onClick={() => setSelectedTab('project')}
                     style={{
                         background: selectedTab === 'project' ? '#fe2c55' : 'white',
@@ -94,7 +125,7 @@ function Main() {
                 </Button>
                 {/* {} */}
                 <Button
-                    to={'/incone'}
+                    to={'/admin/incone'}
                     onClick={() => setSelectedTab('incone')}
                     style={{
                         background: selectedTab === 'incone' ? '#fe2c55' : 'white',

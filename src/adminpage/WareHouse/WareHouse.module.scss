@@ -1,0 +1,86 @@
+.ware_house_page {
+    width: var(--default-layout-width);
+    margin: 0 auto;
+    background: var(--white);
+}
+.content_ware_house {
+    color: var(--primary);
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.head_ware_house {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 14px;
+}
+.head_ware_house,
+.funtions {
+    display: flex;
+}
+.head_ware_house,
+.head_table {
+    border: 1px solid #f1f5f9;
+}
+
+.no_content {
+    flex: 1;
+}
+
+.add,
+.export_file {
+    background: green;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.export_file {
+    margin: auto 2rem;
+}
+
+// table content
+
+.body_table,
+.head_table {
+    border: 1px solid #f1f5f9;
+    height: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+.body_table:hover {
+    background: rgb(82, 183, 234);
+    color: #fff;
+}
+.actions {
+    display: flex;
+}
+.repair_icon {
+    margin-right: 15px;
+    color: orange;
+    cursor: pointer;
+}
+.delete_icon {
+    color: var(--primary);
+    cursor: pointer;
+}
+
+// react paginage
+.react_paginate {
+    margin-left: 74%;
+    height: 50px;
+}
+.react_paginate ul li {
+    border: 1px solid #f1f5f9;
+    margin-top: 3rem;
+    padding: 8px;
+    background: #fff;
+}
+//#f1f5f9

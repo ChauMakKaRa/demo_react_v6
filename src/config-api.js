@@ -13,10 +13,14 @@ const api = {
     my_account: 'http://localhost:3001/api/my-account',
     address: 'http://localhost:3001/api/address',
     changepass: 'http://localhost:3001/api/pass',
+    contacts: 'http://localhost:3001/api/contacts',
 
     // admin
     admin: 'http://localhost:3001/api/admin',
     userexceptadmin: 'http://localhost:3001/api/user-except-admin',
+    delete_all_checked: 'http://localhost:3001/api/delete_user_checked',
+    get_all_order: 'http://localhost:3001/api/get-all-order',
+    contacts_admin: 'http://localhost:3001/api/contacts-admin',
 };
 
 export default api;

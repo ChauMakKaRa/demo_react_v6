@@ -15,7 +15,7 @@ function NewProduct({ products }) {
                             <div className={clsx(styles.description)}>
                                 <div className={clsx(styles.name)}>{product.name}</div>
                                 <div className={clsx(styles.discount)}></div>
-                                <div className={clsx(styles.price)}>{product.price} đ</div>
+                                <div className={clsx(styles.price)}>{product.price.toLocaleString('en-US')} đ</div>
                             </div>
                         </div>
                     </div>

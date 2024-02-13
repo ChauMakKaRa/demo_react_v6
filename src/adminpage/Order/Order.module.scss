@@ -1,0 +1,70 @@
+.wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+.page_manager_order {
+    width: var(--default-layout-width);
+    margin: 0 auto;
+}
+.content_order {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--primary);
+}
+.head_order,
+.actions {
+    display: flex;
+}
+.head_order {
+    background: #fff;
+    padding: 2rem;
+    border: 0.5px solid #dbdbdb;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.search {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 2rem;
+}
+.search input {
+    margin: auto 0;
+}
+.icon_search {
+    margin: auto 1.5rem;
+}
+.no_content {
+    flex: 1;
+}
+.btn_submit {
+    border: 1px solid #ccc;
+    height: 43.5px;
+    border-radius: 5px;
+    margin: 0 10px;
+    width: 8rem;
+    cursor: pointer;
+    display: flex;
+}
+.btn_submit button {
+    margin-left: 10px;
+}
+.select_option select {
+    height: 43.5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn_delete {
+    color: var(--white);
+    background: var(--primary);
+    padding: 8px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    margin: 0 10px;
+
+    &:hover {
+        background: var(--hover);
+    }
+}

@@ -46,7 +46,9 @@ function Sidebar() {
         <>
             <div className={clsx(styles.sidebar_brand)}>
                 <div className={clsx(styles.brand_flex)}>
-                    <img src={images.logo} width={120} alt="avatar" />
+                    <Button to={'/admin'}>
+                        <img src={images.logo} width={120} alt="avatar" />
+                    </Button>
 
                     <div className={clsx(styles.brand_icons)}>
                         <FontAwesomeIcon icon={faBell} />

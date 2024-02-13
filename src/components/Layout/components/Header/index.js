@@ -78,17 +78,17 @@ function Header() {
                             <Button href="/down_load_app">Tải ứng dụng</Button>
                         </div>
                         <div className={clsx(styles.flex, styles.connect_fb)}>
-                            <Button href="/connect_fb" rightIcon={<FontAwesomeIcon icon={faFacebook} />}>
-                                Kết nối
+                            <Button to="/contact" rightIcon={<FontAwesomeIcon icon={faFacebook} />}>
+                                Liên hệ
                             </Button>
                         </div>
                         <div className={clsx(styles.notification)}>
-                            <Button href="/my-account/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
+                            <Button to="/my-account/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
                                 Thông báo
                             </Button>
                         </div>
                         <div className={clsx(styles.support)}>
-                            <Button href="/support" rightIcon={<FontAwesomeIcon icon={faCircleQuestion} />}>
+                            <Button to="/support" rightIcon={<FontAwesomeIcon icon={faCircleQuestion} />}>
                                 Hỗ trợ
                             </Button>
                         </div>

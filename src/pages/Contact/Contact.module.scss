@@ -1,0 +1,52 @@
+.contact_page {
+    width: var(--default-layout-width);
+    margin: 0 auto;
+}
+
+.no_content {
+    height: 4rem;
+}
+
+.main_contact {
+    background: #fff;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    display: flex;
+    margin-top: 15rem;
+    margin-left: 8rem;
+}
+
+//form contact
+.content_contact {
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+}
+.form_contact {
+    padding: 50px;
+}
+
+.form_contact div input {
+    border: 1px solid #ccc;
+    width: 35rem;
+}
+.form_contact div textarea {
+    border: 1px solid #ccc;
+    width: 35rem;
+}
+
+.btn_submit {
+    cursor: pointer;
+    padding: 10px;
+    background: var(--primary);
+    color: var(--white);
+    width: 35rem;
+    border-radius: 5px;
+
+    &:hover {
+        background: var(--hover);
+    }
+}

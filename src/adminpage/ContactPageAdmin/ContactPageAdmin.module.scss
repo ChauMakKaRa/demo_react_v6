@@ -1,0 +1,50 @@
+.wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+.head_contact {
+    display: flex;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #f1f5f9;
+}
+.content_contact {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 2rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.no_content {
+    flex: 1;
+}
+
+.search {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 2rem;
+}
+.search input {
+    margin: auto 0;
+}
+.icon_search {
+    padding: 15px;
+}
+.icon_delete {
+    color: red;
+    margin-left: 20px;
+}
+.head_table {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #f1f5f9;
+}
+.body_contact {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #f1f5f9;
+}

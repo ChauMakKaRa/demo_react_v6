@@ -14,6 +14,8 @@ function ManangerAccount() {
     const [showFormAddUser, setShowFormAddUser] = useState(false);
     const [showFormRepairUser, setShowFormRepairUser] = useState(false);
     const [userRepair, setUserRepair] = useState();
+    const [checked, setChecked] = useState([]);
+
     useEffect(() => {
         const admin_id = sessionStorage.getItem('_id');
         const fetchData = async () => {
@@ -46,6 +48,28 @@ function ManangerAccount() {
             console.log(error);
         }
     };
+
+    const handleDeleteAllChecked = async () => {
+        try {
+            const respones = await axios.delete(`${api.delete_all_checked}?checked=${checked}`);
+            const data = respones.data;
+            alert(data.message);
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleCheck = (id) => {
+        setChecked((prev) => {
+            const isChecked = checked.includes(id);
+            if (isChecked) {
+                return checked.filter((item) => item !== id);
+            } else {
+                return [...prev, id];
+            }
+        });
+    };
     return (
         <div className={clsx(styles.wrapper)}>
             {showFormRepairUser && (
@@ -66,7 +90,7 @@ function ManangerAccount() {
                 <div className={clsx(styles.head_manager)}>
                     <div className={clsx(styles.content_manager)}>Quản Lý Tài Khoản</div>
                     <div className={clsx(styles.no_content)}></div>
-                    <div className={clsx(styles.delete_account)}>
+                    <div className={clsx(styles.delete_account)} onClick={handleDeleteAllChecked}>
                         <FontAwesomeIcon icon={faCircleMinus} style={{ margin: '0 5px' }} />
                         <small>Xóa</small>
                     </div>
@@ -108,7 +132,11 @@ function ManangerAccount() {
                             <div className={clsx(styles.main_table)} key={index}>
                                 <div className="row">
                                     <div className="col-sm-1">
-                                        <input type="checkbox" />
+                                        <input
+                                            type="checkbox"
+                                            checked={checked.includes(user._id)}
+                                            onChange={() => handleCheck(user._id)}
+                                        />
                                     </div>
                                     <div className="col-sm-2">{user.name}</div>
                                     <div className="col-sm-3">{user.email}</div>

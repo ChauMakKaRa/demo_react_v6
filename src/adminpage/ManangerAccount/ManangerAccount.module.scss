@@ -10,9 +10,9 @@
 .head_manager {
     display: flex;
     padding: 1rem;
-    background: #8c8b8b;
-    color: #fff;
+    background: #fff;
     border-radius: 5px;
+    border: 1px solid #f1f5f9;
 }
 
 .no_content {
@@ -20,17 +20,24 @@
 }
 
 .user_list_container {
-    max-height: 200px;
+    min-height: 200px;
+    max-height: 210px;
     overflow-y: auto;
 }
 
 .content_manager,
 .delete_account,
 .add_account {
-    padding: 1rem;
+    padding: 10px 15px 6px 10px;
     cursor: pointer;
 }
+.content_manager {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 600;
+}
 .delete_account {
+    color: #fff;
     background: var(--primary);
     border-radius: 3px;
 }
@@ -38,6 +45,7 @@
 .add_account {
     background: rgb(17, 216, 17);
     margin: 0 1rem;
+    color: #fff;
     border-radius: 3px;
 }
 
@@ -53,8 +61,8 @@
 .main_table {
     height: 4rem;
     padding-top: 1rem;
-    background: #e1e1e1;
-    border: 0.1rem solid #edebeb;
+    background: #fff;
+    border: 0.1rem solid #f1f5f9;
 
     &:hover {
         background: #fbe6e6;
@@ -127,5 +135,5 @@
     background-color: #fff;
     padding: 20px;
     z-index: 1001;
-    border: 1px solid #000;
+    border: 1px solid #f1f5f9;
 }
