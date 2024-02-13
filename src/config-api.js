@@ -21,6 +21,7 @@ const api = {
     delete_all_checked: 'http://localhost:3001/api/delete_user_checked',
     get_all_order: 'http://localhost:3001/api/get-all-order',
     contacts_admin: 'http://localhost:3001/api/contacts-admin',
+    cart_admin: 'http://localhost:3001/api/cart-admin',
 };
 
 export default api;

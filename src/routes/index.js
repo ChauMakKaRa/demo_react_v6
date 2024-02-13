@@ -159,7 +159,7 @@ const publicRoutes = [
     {
         path: '/admin/shippement',
         component: Shippement,
-        layout: LayoutAdmin,
+        layout: LayoutAdminNoHeader,
     },
     {
         path: '/admin/notification',

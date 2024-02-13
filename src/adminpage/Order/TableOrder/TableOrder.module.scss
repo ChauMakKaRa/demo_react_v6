@@ -3,8 +3,8 @@
     display: flex;
 }
 .table {
-    min-height: 200px;
-    max-height: 210px;
+    min-height: 250px;
+    max-height: 250px;
     overflow-y: auto;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -33,4 +33,28 @@
 .input_checkbox {
     min-width: 50px;
     padding-top: 15px;
+}
+
+.btn_submit_status {
+    background: var(--primary);
+    padding: 4px;
+    border-radius: 5px;
+    color: #fff;
+    width: 88.52px;
+    height: 32px;
+}
+
+.unpaid {
+    background: orangered;
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.paid {
+    background: rgb(23, 207, 2);
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px;
+    width: 129px;
 }

@@ -21,7 +21,13 @@ function HeaderAdmin({ inputId }) {
                 </label>{' '}
             </div>
             <div className={clsx(styles.search)}>
-                <input type="text" className={clsx(styles.input_search)} value={key} onChange={handleChangeKey} />
+                <input
+                    type="text"
+                    className={clsx(styles.input_search)}
+                    value={key}
+                    onChange={handleChangeKey}
+                    placeholder="ID khách hàng..."
+                />
                 <Button className={clsx(styles.btn_search)} onClick={handleSearchWithKey}>
                     <FontAwesomeIcon className={clsx(styles.header_icon)} icon={faSearch} />
                 </Button>
