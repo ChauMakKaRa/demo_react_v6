@@ -1,0 +1,25 @@
+.repair_page_customers {
+    max-width: var(--default-layout-width);
+    background: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.form_repair div input,
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.btn_submit {
+    background: rgb(211, 219, 2);
+    padding: 7px;
+    border-radius: 5px;
+    width: 100px;
+
+    &:hover {
+        background: rgb(247, 255, 4);
+    }
+}

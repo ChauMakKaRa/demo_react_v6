@@ -14,6 +14,7 @@ const api = {
     address: 'http://localhost:3001/api/address',
     changepass: 'http://localhost:3001/api/pass',
     contacts: 'http://localhost:3001/api/contacts',
+    repair: 'http://localhost:3001/api/repair',
 
     // admin
     admin: 'http://localhost:3001/api/admin',
@@ -22,6 +23,11 @@ const api = {
     get_all_order: 'http://localhost:3001/api/get-all-order',
     contacts_admin: 'http://localhost:3001/api/contacts-admin',
     cart_admin: 'http://localhost:3001/api/cart-admin',
+
+    //shipper
+
+    cart_shipper: 'http://localhost:3001/api/cart-shipper',
+    repair_shipper: 'http://localhost:3001/api/repair-shipper',
 };
 
 export default api;

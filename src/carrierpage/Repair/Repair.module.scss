@@ -1,0 +1,43 @@
+.repair_page {
+    max-width: var(--default-layout-width);
+    margin: 0 auto;
+    background: #fff;
+}
+
+.no_content {
+    height: 3rem;
+    background: #f1f5f9;
+}
+
+.head_repair {
+    padding: 20px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 2.5px solid var(--primary);
+}
+.body_table {
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid #f1f5f9;
+}
+.head_table {
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn_delete {
+    padding: 5px;
+    background: rgb(110, 182, 2);
+    color: #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5px;
+
+    &:hover {
+        background: rgb(137, 227, 2);
+    }
+}

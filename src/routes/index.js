@@ -32,6 +32,7 @@ import ReportsAndStatistics from '@/adminpage/ReportsAndStatistics';
 import Contact from '@/pages/Contact';
 import ShipperPage from '@/carrierpage/Shipper';
 import RepairPage from '@/carrierpage/Repair';
+import Repair from '@/pages/Repair';
 // import { LayoutHeaderAdmin } from '@/components/LayoutAdmin';
 const publicRoutes = [
     {
@@ -120,6 +121,10 @@ const publicRoutes = [
     {
         path: '/contact',
         component: Contact,
+    },
+    {
+        path: '/register-for-repair',
+        component: Repair,
     },
 
     // admin

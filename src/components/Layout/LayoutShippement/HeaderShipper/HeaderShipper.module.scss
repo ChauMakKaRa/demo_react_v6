@@ -1,0 +1,70 @@
+.wrapper {
+    min-width: var(--default-layout-width);
+    margin: 0 auto;
+    display: flex;
+}
+
+.logo,
+.search,
+.list_words,
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input {
+    margin-top: 14px;
+    background: transparent;
+    min-width: 300px;
+}
+.flex {
+    flex: 1;
+}
+.search {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    height: 46px;
+    background: #fff;
+}
+
+.icon_search {
+    padding: 5px 10px 5px 5px;
+    cursor: pointer;
+}
+
+.installation,
+.repair {
+    margin: 0 20px;
+    padding: 7px;
+    border-radius: 20px;
+    min-width: 91px;
+    text-align: center;
+    background: linear-gradient(to right, rgb(73, 48, 238), rgb(4, 14, 105));
+}
+
+.btn_a {
+    color: #fff;
+}
+.avatar {
+    cursor: pointer;
+}
+
+.image_avatar {
+    padding: 5px;
+    border: 1px solid #ccc;
+    max-height: 50px;
+    max-width: 50px;
+    border-radius: 50%;
+}
+.drodown {
+    margin-top: 100px;
+    flex-direction: column;
+    position: absolute;
+}
+
+.logout button {
+    background: #fff;
+    width: 150px;
+}

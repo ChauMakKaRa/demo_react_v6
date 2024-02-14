@@ -27,6 +27,8 @@ function Login() {
                 navigate('/');
             } else if (sessionStorage.getItem('roles') === 'Admin') {
                 navigate('/admin');
+            } else if (sessionStorage.getItem('roles') === 'Shipper') {
+                navigate('/carreir/shipper');
             } else {
                 setError(response.data.error);
                 ref.current.focus();

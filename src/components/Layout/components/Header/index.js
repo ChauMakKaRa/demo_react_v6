@@ -9,6 +9,7 @@ import {
     faCartShopping,
     faCircleQuestion,
     faCircleXmark,
+    faHammer,
     faMagnifyingGlass,
     faRightFromBracket,
     faUser,
@@ -56,12 +57,14 @@ function Header() {
         setIsOpen(!isOpen);
     };
     useEffect(() => {
+        const id_user = sessionStorage.getItem('_id');
         const fetchData = async () => {
-            const id_user = sessionStorage.getItem('_id');
             try {
-                const respones = await axios.get(`${api.user}?userId=${id_user}`);
-                const data = respones.data;
-                setUser(data);
+                if (id_user) {
+                    const respones = await axios.get(`${api.user}?userId=${id_user}`);
+                    const data = respones.data;
+                    setUser(data);
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -75,7 +78,9 @@ function Header() {
                 <nav className={styles.navbar}>
                     <div className={clsx(styles.center, styles.inner)}>
                         <div className={clsx(styles.shop_drawer)} id={clsx(styles.drawer_id_0)}>
-                            <Button href="/down_load_app">Tải ứng dụng</Button>
+                            <Button to="/register-for-repair" rightIcon={<FontAwesomeIcon icon={faHammer} />}>
+                                Sửa chữa
+                            </Button>
                         </div>
                         <div className={clsx(styles.flex, styles.connect_fb)}>
                             <Button to="/contact" rightIcon={<FontAwesomeIcon icon={faFacebook} />}>

@@ -6,12 +6,11 @@
 .header {
     height: 70px;
     width: 100%;
-    background: #edecec;
+    background: #f99b1e;
     display: flex;
 }
 
 .main {
     background: #f1f5f9;
-    max-width: var(--default-layout-width);
-    margin: 0 auto;
+    min-height: 800px;
 }
