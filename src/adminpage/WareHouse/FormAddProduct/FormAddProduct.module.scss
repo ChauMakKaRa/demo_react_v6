@@ -1,0 +1,23 @@
+.form_add_product div {
+    display: flex;
+}
+
+.form_add_product div input {
+    border: 1px solid #ccc;
+}
+
+.form_add_product div label {
+    width: 30%;
+}
+
+.form_add_product button {
+    border: 1px solid rgb(4, 181, 36);
+    background: rgb(4, 181, 36);
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 23%;
+    &:hover {
+        background: rgb(32, 228, 68);
+    }
+}

@@ -2,12 +2,15 @@ import clsx from 'clsx';
 import ReactPaginate from 'react-paginate';
 import styles from './WareHouse.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faPlus, faRightFromBracket, faX } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faPen, faPlus, faRightFromBracket, faX } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from '@/config-api';
+import FormAddProduct from './FormAddProduct';
 
 function WareHouse() {
+    const [showFormRepairUser, setShowFormRepairUser] = useState(false);
+
     const [products, setProducts] = useState([]);
     const [pageCounts, setPageCounts] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
@@ -29,11 +32,30 @@ function WareHouse() {
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
     };
+
+    const handleAddNewProduct = () => {
+        setShowFormRepairUser(!showFormRepairUser);
+    };
     const offset = currentPage * productsPerPage;
     const currentProducts = products.slice(offset, offset + productsPerPage);
 
     return (
         <div className={clsx(styles.wrapper)}>
+            {showFormRepairUser && (
+                <div>
+                    <div className={clsx(styles.form_overlay2)} />
+                    <div className={clsx(styles.form_container2)}>
+                        <FontAwesomeIcon
+                            className={clsx(styles.delete_form)}
+                            icon={faCircleXmark}
+                            onClick={() => setShowFormRepairUser(!showFormRepairUser)}
+                        />
+                        <div className={clsx(styles.content_add)}>Thêm sản phẩm mới</div>
+                        {/* <FormRepair user={userRepair} /> */}
+                        <FormAddProduct />
+                    </div>
+                </div>
+            )}
             <div className={clsx(styles.ware_house_page)}>
                 <div className={clsx(styles.head_ware_house)}>
                     <div className={clsx(styles.content_ware_house)}>
@@ -45,7 +67,7 @@ function WareHouse() {
                     </div>
                     <div className={clsx(styles.no_content)}></div>
                     <div className={clsx(styles.funtions)}>
-                        <div className={clsx(styles.add)}>
+                        <div className={clsx(styles.add)} onClick={handleAddNewProduct}>
                             <FontAwesomeIcon icon={faPlus} />
                             Thêm mới
                         </div>
@@ -114,11 +136,11 @@ function WareHouse() {
             <div className={clsx(styles.react_paginate, 'custom-pagination-class')}>
                 <ReactPaginate
                     breakLabel="..."
-                    nextLabel="Sau >"
+                    nextLabel="Sau"
                     onPageChange={handlePageClick}
                     pageRangeDisplayed={5}
                     pageCount={pageCounts}
-                    previousLabel="< Trước"
+                    previousLabel="Trước"
                     renderOnZeroPageCount={null}
                     pageClassName="page-item"
                     pageLinkClassName="page-link"
