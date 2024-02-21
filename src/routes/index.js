@@ -166,7 +166,7 @@ const publicRoutes = [
     {
         path: '/admin/shippement',
         component: Shippement,
-        layout: LayoutAdminNoHeader,
+        layout: LayoutAdmin,
     },
     {
         path: '/admin/notification',
@@ -193,6 +193,6 @@ const publicRoutes = [
     },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{}];
 
 export { publicRoutes, privateRoutes };

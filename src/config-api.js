@@ -15,6 +15,7 @@ const api = {
     changepass: 'http://localhost:3001/api/pass',
     contacts: 'http://localhost:3001/api/contacts',
     repair: 'http://localhost:3001/api/repair',
+    notification_by_id: 'http://localhost:3001/api/notification-by-id',
 
     // admin
     admin: 'http://localhost:3001/api/admin',
@@ -23,7 +24,9 @@ const api = {
     get_all_order: 'http://localhost:3001/api/get-all-order',
     contacts_admin: 'http://localhost:3001/api/contacts-admin',
     cart_admin: 'http://localhost:3001/api/cart-admin',
-
+    repair_admin: 'http://localhost:3001/api/repair-admin',
+    sendEmailCofirm: 'http://localhost:3001/api/user-admin',
+    notification: 'http://localhost:3001/api/notification',
     //shipper
 
     cart_shipper: 'http://localhost:3001/api/cart-shipper',
