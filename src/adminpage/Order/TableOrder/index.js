@@ -3,8 +3,12 @@ import styles from './TableOrder.module.scss';
 import Button from '@/components/Button';
 import axios from 'axios';
 import api from '@/config-api';
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 function TableOrder({ orders }) {
+    const [idOrders, setIdOrders] = useState();
     const handleChangeStatus = async (id) => {
         try {
             const respones = await axios.put(`${api.cart_admin}?id_cart=${id}`);
@@ -16,9 +20,43 @@ function TableOrder({ orders }) {
         }
     };
 
-    const handleDeleteCart = async (id) => {
-        console.log(id);
+    const handleCofirmEmail = async (id, id_order) => {
+        console.log(id_order);
+        try {
+            const confirm = window.confirm(
+                'Sau khi xác nhận sẽ xóa đơn hàng, bạn có chắc muốn tiếp tục xác nhận hay không?',
+            );
+            if (confirm) {
+                const respones = await axios.post(`${api.sendEmailCofirm}?id=${id}&id_order=${id_order}`);
+                const data = respones.data;
+                alert(data.message);
+                window.location.reload();
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
+
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = (textToCopy) => {
+        navigator.clipboard.writeText(textToCopy); // Sao chép văn bản vào clipboard
+        setCopied(true); // Cập nhật trạng thái đã sao chép
+        setTimeout(() => {
+            setCopied(false); // Sau một khoảng thời gian, reset trạng thái đã sao chép
+        }, 1500); // 1.5 giây
+    };
+    // const handleDeleteCart = async (id) => {
+    //     try {
+    //         const confirm = window.confirm('Bạn có chắc chắn xóa đơn hàng này không?');
+    //         if (confirm) {
+    //             await axios.delete(`${api.cart_admin}?id=${id}`);
+    //             window.location.reload();
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     return (
         <div className={clsx(styles.table)}>
@@ -52,11 +90,23 @@ function TableOrder({ orders }) {
             {orders.map((order, index) => (
                 <div key={index} className={clsx(styles.body_table)}>
                     <div className={clsx(styles.input_checkbox)}>
-                        <input type="checkbox" />
+                        <input type="checkbox" value={idOrders} onChange={(e) => setIdOrders(e.target.value)} />
                     </div>
                     <div className={clsx(styles.id_order)}>{order.id}</div>
                     <div className={clsx(styles.td, styles.date_ordered)}>1/2/2024</div>
-                    <div className={clsx(styles.customers)}>{order.user_id}</div>
+                    <div className={clsx(styles.customers)}>
+                        {order.user_id}{' '}
+                        <FontAwesomeIcon
+                            icon={faCopy}
+                            onClick={() => handleCopy(order.user_id)}
+                            style={{ paddingBottom: ' 15px', paddingLeft: '5px', cursor: 'pointer', color: '#878787' }}
+                        />
+                        {copied && (
+                            <span style={{ marginLeft: '90px', position: 'absolute', marginBottom: '35px' }}>
+                                Đã sao chép!
+                            </span>
+                        )}
+                    </div>
                     <div className={clsx(styles.td, styles.total)}>
                         <div style={{ color: 'red' }}>{order.total.toLocaleString('en-US')}đ</div>
                     </div>
@@ -70,11 +120,17 @@ function TableOrder({ orders }) {
                     </div>
                     <div className={clsx(styles.td, styles.status)}>
                         {order.status === 'Đã giao' ? (
+                            // <Button
+                            //     className={clsx(styles.btn_submit_status)}
+                            //     onClick={() => handleDeleteCart(order._id)}
+                            // >
+                            //     Xác nhận
+                            // </Button>
                             <Button
                                 className={clsx(styles.btn_submit_status)}
-                                onClick={() => handleDeleteCart(order._id)}
+                                onClick={() => handleCofirmEmail(order.user_id, order._id)}
                             >
-                                Xóa
+                                Xác nhận
                             </Button>
                         ) : (
                             <Button
