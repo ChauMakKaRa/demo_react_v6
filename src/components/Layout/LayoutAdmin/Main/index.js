@@ -11,6 +11,7 @@ function Main() {
     const [selectedTab, setSelectedTab] = useState(null);
     const [users, setUsers] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [repairs, setRepairs] = useState([]);
 
     useEffect(() => {
         const admin_id = sessionStorage.getItem('_id');
@@ -25,7 +26,18 @@ function Main() {
         };
         fetchData();
     }, []);
-
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const respones = await axios.get(`${api.repair_admin}`);
+                const data = respones.data;
+                setRepairs(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -97,7 +109,7 @@ function Main() {
                 </Button>
                 {/* {} */}
                 <Button
-                    to={'/admin/project'}
+                    to={'/admin/shippement'}
                     onClick={() => setSelectedTab('project')}
                     style={{
                         background: selectedTab === 'project' ? '#fe2c55' : 'white',
@@ -111,7 +123,7 @@ function Main() {
                                     <span>Bảo hành</span>
                                     <small>Bảo hành và sửa chữa</small>
                                 </div>
-                                <h2>79</h2>
+                                <h2>{repairs.length}</h2>
                                 <small>Repair</small>
                             </div>
                             <div className={clsx(styles.card_chart)}>

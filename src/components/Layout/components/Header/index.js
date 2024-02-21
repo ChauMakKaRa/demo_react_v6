@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import clsx from 'clsx';
@@ -25,8 +25,11 @@ import axios from 'axios';
 import api from '@/config-api';
 
 function Header() {
+    const [notifications, setNotifications] = useState([]);
+
     const [search, setSearch] = useState('');
     const [quantity, setQuantity] = useState(0);
+    const [quantityNotification, setQuantityNotification] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const [user, setUser] = useState('');
@@ -48,6 +51,18 @@ function Header() {
                 setQuantity(0);
             }
         };
+        const fetchNotification = async () => {
+            const user_id = sessionStorage.getItem('_id');
+            try {
+                const respones = await axios.get(`${api.notification}?user_id=${user_id}`);
+                const data = respones.data;
+                setQuantityNotification(data.length);
+                setNotifications(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchNotification();
         fetchData();
     }
     const handleLogOut = () => {
@@ -72,6 +87,11 @@ function Header() {
         fetchData();
     }, []);
 
+    const time = (stringTime) => {
+        const date = new Date(stringTime);
+        const time = date.toLocaleTimeString('en-US', { hour12: false });
+        return time;
+    };
     return (
         <header className={clsx(styles.wrapper)}>
             <div className={clsx(styles.navbar_top)}>
@@ -91,6 +111,34 @@ function Header() {
                             <Button to="/my-account/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
                                 Thông báo
                             </Button>
+                            <span className={clsx(styles.quantity_notification)}>{quantityNotification}</span>
+                            <div className={clsx(styles.list_notifications)}>
+                                {notifications.map((notification, index) => (
+                                    <Fragment key={index}>
+                                        {!notification.read_status ? (
+                                            <Button
+                                                to={`/my-account/notification?key=${notification._id}`}
+                                                style={{ color: '#000' }}
+                                            >
+                                                <div className={clsx(styles.title)}>{notification.title}</div>
+                                                <div className={clsx(styles.time)}>
+                                                    <i>{time(notification.createdAt)}</i>
+                                                </div>
+                                            </Button>
+                                        ) : (
+                                            <Button
+                                                to={`/my-account/notification?key=${notification._id}`}
+                                                style={{ color: '#000' }}
+                                            >
+                                                <div className={clsx(styles.title)}>{notification.title}</div>
+                                                <div className={clsx(styles.time)}>
+                                                    <i>{time(notification.createdAt)}</i>
+                                                </div>
+                                            </Button>
+                                        )}
+                                    </Fragment>
+                                ))}
+                            </div>
                         </div>
                         <div className={clsx(styles.support)}>
                             <Button to="/support" rightIcon={<FontAwesomeIcon icon={faCircleQuestion} />}>

@@ -39,6 +39,36 @@
     margin: 0 20px; /* Khoảng cách 20px theo chiều ngang */
 }
 
+.quantity_notification {
+    font-size: 13px;
+    margin: 0;
+    position: absolute;
+    top: -5px;
+    right: 62%;
+    color: white;
+    border-radius: 50%; /* Để tạo hình tròn */
+    padding: 4px 12px;
+}
+
+.list_notifications {
+    display: none;
+    background-color: #fff; /* Thiết lập màu nền là #fff */
+    padding: 10px; /* Thêm padding để tạo khoảng cách */
+    border: 1px solid #ccc; /* Thêm viền để làm nổi bật */
+    border-radius: 5px;
+}
+
+.notification:hover .list_notifications {
+    display: block;
+    position: absolute;
+    z-index: 999;
+}
+
+.time {
+    float: right;
+    color: #8b8989;
+}
+
 .navbar__spacer {
     flex: 1;
 }
