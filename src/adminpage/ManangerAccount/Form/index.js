@@ -12,7 +12,6 @@ function Form() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
             const respones = await axios.post(`${api.admin}`, {
                 name: name,
