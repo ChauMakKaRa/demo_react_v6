@@ -1,0 +1,43 @@
+.page_shippement {
+    max-width: var(--default-layout-width);
+    margin: 0 auto;
+}
+
+.head_page {
+    padding: 10px;
+    text-align: center;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.table {
+    border: 1px solid #fff;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.row_table,
+.head_table {
+    text-align: center;
+    padding: 10px;
+}
+
+.head_table {
+    font-weight: 600;
+}
+
+.row_table {
+    border-top: 2px solid #fff;
+}
+
+.btn_cofirm {
+    padding: 8px;
+    border-radius: 8px;
+    background: rgb(9, 184, 9);
+    color: #fff;
+    min-width: 80px;
+
+    &:hover {
+        background: rgb(144, 207, 9);
+    }
+}
