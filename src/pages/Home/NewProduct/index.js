@@ -26,22 +26,24 @@ function NewProduct({ products }) {
     const reversedProducts = currentProducts.slice().reverse();
     return (
         <div className={clsx(styles.wrapper)}>
-            {reversedProducts.map((product) => (
-                <Button to={`/detail-product?id=${product.id}`} key={product.id}>
-                    <div className={clsx(styles.product_list)}>
-                        <div className={clsx(styles.item)}>
-                            <div className={clsx(styles.images)}>
-                                <img className={clsx(styles.image)} src={product.image} alt={product.name} />
-                            </div>
-                            <div className={clsx(styles.description)}>
-                                <div className={clsx(styles.name)}>{product.name}</div>
-                                <div className={clsx(styles.discount)}></div>
-                                <div className={clsx(styles.price)}>{product.price.toLocaleString('en-US')} đ</div>
+            <div className={clsx(styles.list_products)}>
+                {reversedProducts.map((product) => (
+                    <Button to={`/detail-product?id=${product.id}`} key={product.id}>
+                        <div className={clsx(styles.product_list)}>
+                            <div className={clsx(styles.item)}>
+                                <div className={clsx(styles.images)}>
+                                    <img className={clsx(styles.image)} src={product.image} alt={product.name} />
+                                </div>
+                                <div className={clsx(styles.description)}>
+                                    <div className={clsx(styles.name)}>{product.name}</div>
+                                    <div className={clsx(styles.discount)}></div>
+                                    <div className={clsx(styles.price)}>{product.price.toLocaleString('en-US')} đ</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Button>
-            ))}
+                    </Button>
+                ))}
+            </div>
             <div className={clsx(styles.react_paginate, 'custom-pagination-class')}>
                 <ReactPaginate
                     breakLabel="..."

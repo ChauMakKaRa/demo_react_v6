@@ -10,13 +10,15 @@ function Notification() {
         const params = new URLSearchParams(search);
         const key = params.get('key');
         const fecthData = async () => {
-            try {
-                const respones = await axios.get(`${api.notification_by_id}?id=${key}`);
-                const data = respones.data;
-                setNotification(data);
-                console.log(data);
-            } catch (error) {
-                console.log(error);
+            if (key) {
+                try {
+                    const respones = await axios.get(`${api.notification_by_id}?id=${key}`);
+                    const data = respones.data;
+                    setNotification(data);
+                    console.log(data);
+                } catch (error) {
+                    console.log(error);
+                }
             }
         };
         fecthData();

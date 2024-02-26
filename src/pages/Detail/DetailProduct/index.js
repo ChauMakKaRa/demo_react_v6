@@ -6,6 +6,7 @@ import api from '@/config-api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Button from '@/components/Button';
+import Comments from './Comments';
 function DetailProduct() {
     const [count, setCount] = useState(1);
     const [product, setProduct] = useState('');
@@ -39,6 +40,7 @@ function DetailProduct() {
         try {
             const response = await axios.post(`${api.cart}?quantity=${count}&id_product=${id}&id_user=${id_user}`);
             alert(response.data.notification);
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
@@ -110,6 +112,7 @@ function DetailProduct() {
                     </div>
                 </div>
             </div>
+            <Comments product={product} />
         </div>
     );
 }

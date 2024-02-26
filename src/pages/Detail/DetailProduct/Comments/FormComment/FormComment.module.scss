@@ -1,0 +1,25 @@
+.product {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.product p {
+    color: var(--primary);
+    margin-top: 10px;
+    font-size: 600;
+    font-size: 15px;
+}
+
+.btn_ {
+    background: #337ab7;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    width: 250px;
+    margin-left: 24%;
+
+    &:hover {
+        background: #518cbe;
+    }
+}

@@ -1,7 +1,5 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
+    margin: 0;
 }
 
 .product_list {
@@ -56,4 +54,10 @@
     margin-top: 3rem;
     padding: 8px;
     background: #fff;
+}
+
+.list_products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
 }
