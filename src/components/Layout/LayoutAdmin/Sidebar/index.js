@@ -27,9 +27,11 @@ function Sidebar() {
         const admin_id = sessionStorage.getItem('_id');
         const fetchData = async () => {
             try {
-                const respones = await axios.get(`${api.admin}?adminId=${admin_id}`);
-                const data = respones.data;
-                setAdmin(data);
+                if (admin_id) {
+                    const respones = await axios.get(`${api.admin}?adminId=${admin_id}`);
+                    const data = respones.data;
+                    setAdmin(data);
+                }
             } catch (error) {
                 console.log(error);
             }

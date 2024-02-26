@@ -41,30 +41,32 @@ function Header() {
     };
 
     const logged = sessionStorage.getItem('id');
-    if (logged) {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${api.cart}?user_id=${logged}`);
-                const data = response.data;
-                setQuantity(data[0].item.length);
-            } catch (error) {
-                setQuantity(0);
-            }
-        };
-        const fetchNotification = async () => {
-            const user_id = sessionStorage.getItem('_id');
-            try {
-                const respones = await axios.get(`${api.notification}?user_id=${user_id}`);
-                const data = respones.data;
-                setQuantityNotification(data.length);
-                setNotifications(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchNotification();
-        fetchData();
-    }
+    useEffect(() => {
+        if (logged) {
+            const fetchData = async () => {
+                try {
+                    const response = await axios.get(`${api.cart}?user_id=${logged}`);
+                    const data = response.data;
+                    setQuantity(data[0].item.length);
+                } catch (error) {
+                    setQuantity(0);
+                }
+            };
+            const fetchNotification = async () => {
+                const user_id = sessionStorage.getItem('_id');
+                try {
+                    const respones = await axios.get(`${api.notification}?user_id=${user_id}`);
+                    const data = respones.data;
+                    setQuantityNotification(data.length);
+                    setNotifications(data);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            fetchNotification();
+            fetchData();
+        }
+    }, [logged]);
     const handleLogOut = () => {
         sessionStorage.removeItem('id');
         sessionStorage.removeItem('roles');
@@ -108,33 +110,45 @@ function Header() {
                             </Button>
                         </div>
                         <div className={clsx(styles.notification)}>
-                            <Button to="/my-account/notification" rightIcon={<FontAwesomeIcon icon={faBell} />}>
+                            <Button to="#" rightIcon={<FontAwesomeIcon icon={faBell} />}>
                                 Thông báo
                             </Button>
                             <span className={clsx(styles.quantity_notification)}>{quantityNotification}</span>
                             <div className={clsx(styles.list_notifications)}>
                                 {notifications.map((notification, index) => (
                                     <Fragment key={index}>
-                                        {!notification.read_status ? (
-                                            <Button
-                                                to={`/my-account/notification?key=${notification._id}`}
-                                                style={{ color: '#000' }}
-                                            >
-                                                <div className={clsx(styles.title)}>{notification.title}</div>
-                                                <div className={clsx(styles.time)}>
-                                                    <i>{time(notification.createdAt)}</i>
-                                                </div>
-                                            </Button>
+                                        {notification.read_status === false ? (
+                                            <div>
+                                                <Button
+                                                    to={`/my-account/notification?key=${notification._id}`}
+                                                    style={{ color: '#000' }}
+                                                >
+                                                    <div className={clsx(styles.title)}>
+                                                        <b>{notification.title}</b>
+                                                    </div>
+                                                    <div className={clsx(styles.time)}>
+                                                        <i style={{ marginRight: '100px' }}>Chưa xem</i>
+                                                        <i>{time(notification.createdAt)}</i>
+                                                    </div>
+                                                    <br style={{ borderBottom: '1px solid #ccc' }}></br>
+                                                </Button>
+                                            </div>
                                         ) : (
-                                            <Button
-                                                to={`/my-account/notification?key=${notification._id}`}
-                                                style={{ color: '#000' }}
-                                            >
-                                                <div className={clsx(styles.title)}>{notification.title}</div>
-                                                <div className={clsx(styles.time)}>
-                                                    <i>{time(notification.createdAt)}</i>
-                                                </div>
-                                            </Button>
+                                            <div>
+                                                <Button
+                                                    to={`/my-account/notification?key=${notification._id}`}
+                                                    style={{ color: '#000', backgroundColor: '#ccc' }}
+                                                >
+                                                    <div className={clsx(styles.title)}>
+                                                        <b>{notification.title}</b>
+                                                    </div>
+                                                    <div className={clsx(styles.time)}>
+                                                        <i style={{ marginRight: '100px' }}>Đã xem</i>
+                                                        <i>{time(notification.createdAt)}</i>
+                                                    </div>
+                                                    <br></br>
+                                                </Button>
+                                            </div>
                                         )}
                                     </Fragment>
                                 ))}

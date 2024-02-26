@@ -69,7 +69,13 @@ function Main() {
                                     <span>Khách hàng</span>
                                     <small>Số lượng khách hàng </small>
                                 </div>
-                                <h2>{users.length}</h2>
+                                <h2
+                                    style={{
+                                        color: selectedTab === 'account' ? 'white' : '#fe2c55',
+                                    }}
+                                >
+                                    {users.length}
+                                </h2>
                                 <small>Customer</small>
                             </div>
                             <div className={clsx(styles.card_chart)}>
@@ -95,13 +101,22 @@ function Main() {
                                     <span>Đơn hàng</span>
                                     <small>Số lượng đơn hàng</small>
                                 </div>
-                                <h2>{orders.length}</h2>
+                                <h2
+                                    style={{
+                                        color: selectedTab === 'order' ? 'white' : '#fe2c55',
+                                    }}
+                                >
+                                    {orders.length}
+                                </h2>
                                 <small>Order</small>
                             </div>
                             <div className={clsx(styles.card_chart)}>
                                 <FontAwesomeIcon
                                     className={clsx(styles.primary, styles.chart_icon)}
                                     icon={faBagShopping}
+                                    style={{
+                                        color: selectedTab === 'order' ? 'white' : '#fe2c55',
+                                    }}
                                 />
                             </div>
                         </div>
@@ -123,11 +138,20 @@ function Main() {
                                     <span>Bảo hành</span>
                                     <small>Bảo hành và sửa chữa</small>
                                 </div>
-                                <h2>{repairs.length}</h2>
+                                <h2
+                                    style={{
+                                        color: selectedTab === 'project' ? 'white' : '#fe2c55',
+                                    }}
+                                >
+                                    {repairs.length}
+                                </h2>
                                 <small>Repair</small>
                             </div>
                             <div className={clsx(styles.card_chart)}>
                                 <FontAwesomeIcon
+                                    style={{
+                                        color: selectedTab === 'project' ? 'white' : '#fe2c55',
+                                    }}
                                     className={clsx(styles.primary, styles.chart_icon)}
                                     icon={faScrewdriverWrench}
                                 />
