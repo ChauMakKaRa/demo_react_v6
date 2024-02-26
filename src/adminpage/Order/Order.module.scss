@@ -68,6 +68,79 @@
         background: var(--hover);
     }
 }
+.btn_print_biil {
+    background: rgb(23, 207, 2);
+    color: white;
+    margin-right: 5px;
+}
 .print_biil {
-    padding: 8px;
+    height: 43px;
+    width: 80px;
+    background: rgb(23, 207, 2);
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 10px;
+    color: #fff;
+}
+
+//table
+.head_table,
+.body_table {
+    display: flex;
+}
+.table {
+    min-height: 250px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.td,
+.customers,
+.id_order,
+.input_checkbox {
+    border: 0.5px solid #dbdbdb;
+    text-align: center;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.td {
+    max-width: 150px;
+    min-width: 150px;
+}
+.customers {
+    min-width: 260px;
+}
+.id_order {
+    width: 80px;
+}
+.input_checkbox {
+    min-width: 50px;
+    padding-top: 15px;
+}
+
+.btn_submit_status {
+    background: var(--primary);
+    padding: 4px;
+    border-radius: 5px;
+    color: #fff;
+    width: 88.52px;
+    height: 32px;
+}
+
+.unpaid {
+    background: orangered;
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.paid {
+    background: rgb(23, 207, 2);
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px;
+    width: 129px;
 }

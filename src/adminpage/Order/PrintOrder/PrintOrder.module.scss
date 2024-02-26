@@ -1,0 +1,30 @@
+.bill {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 880px;
+    margin: 0 auto;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    margin: 0px;
+}
+
+.total_quantity {
+    border-right: 1px solid #ccc;
+}
+
+.image {
+    background: var(--main-color);
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.id {
+    margin-top: 45px;
+}

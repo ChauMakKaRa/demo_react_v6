@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 function TableOrder({ orders }) {
-    const [idOrders, setIdOrders] = useState();
+    const [idOrders, setIdOrders] = useState([]);
     const handleChangeStatus = async (id) => {
         try {
             const respones = await axios.put(`${api.cart_admin}?id_cart=${id}`);
@@ -19,9 +19,18 @@ function TableOrder({ orders }) {
             console.log(error);
         }
     };
+    const handleCheck = (id) => {
+        setIdOrders((prev) => {
+            const isChecked = idOrders.includes(id);
+            if (isChecked) {
+                return idOrders.filter((item) => item !== id);
+            } else {
+                return [...prev, id];
+            }
+        });
+    };
 
     const handleCofirmEmail = async (id, id_order) => {
-        console.log(id_order);
         try {
             const confirm = window.confirm(
                 'Sau khi xác nhận sẽ xóa đơn hàng, bạn có chắc muốn tiếp tục xác nhận hay không?',
@@ -40,24 +49,12 @@ function TableOrder({ orders }) {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = (textToCopy) => {
-        navigator.clipboard.writeText(textToCopy); // Sao chép văn bản vào clipboard
-        setCopied(true); // Cập nhật trạng thái đã sao chép
+        navigator.clipboard.writeText(textToCopy);
+        setCopied(true);
         setTimeout(() => {
-            setCopied(false); // Sau một khoảng thời gian, reset trạng thái đã sao chép
-        }, 1500); // 1.5 giây
+            setCopied(false);
+        }, 1500);
     };
-    // const handleDeleteCart = async (id) => {
-    //     try {
-    //         const confirm = window.confirm('Bạn có chắc chắn xóa đơn hàng này không?');
-    //         if (confirm) {
-    //             await axios.delete(`${api.cart_admin}?id=${id}`);
-    //             window.location.reload();
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     return (
         <div className={clsx(styles.table)}>
             <div className={clsx(styles.head_table)}>
@@ -86,11 +83,14 @@ function TableOrder({ orders }) {
                     <b>Trạng thái</b>
                 </div>
             </div>
-
             {orders.map((order, index) => (
                 <div key={index} className={clsx(styles.body_table)}>
                     <div className={clsx(styles.input_checkbox)}>
-                        <input type="checkbox" value={idOrders} onChange={(e) => setIdOrders(e.target.value)} />
+                        <input
+                            type="checkbox"
+                            checked={idOrders.includes(order._id)}
+                            onChange={() => handleCheck(order._id)}
+                        />
                     </div>
                     <div className={clsx(styles.id_order)}>{order.id}</div>
                     <div className={clsx(styles.td, styles.date_ordered)}>1/2/2024</div>
@@ -120,12 +120,6 @@ function TableOrder({ orders }) {
                     </div>
                     <div className={clsx(styles.td, styles.status)}>
                         {order.status === 'Đã giao' ? (
-                            // <Button
-                            //     className={clsx(styles.btn_submit_status)}
-                            //     onClick={() => handleDeleteCart(order._id)}
-                            // >
-                            //     Xác nhận
-                            // </Button>
                             <Button
                                 className={clsx(styles.btn_submit_status)}
                                 onClick={() => handleCofirmEmail(order.user_id, order._id)}

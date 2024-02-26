@@ -20,6 +20,15 @@ function ContactPageAdmin() {
         };
         fetchData();
     }, []);
+
+    const handleDeleteContact = async (id) => {
+        try {
+            const respones = await axios.delete(`${api.contacts_admin}?id=${id}`);
+            alert(respones.data.message);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <div className={clsx(styles.wrapper)}>
             <div className={clsx(styles.page_contact_admin)}>
@@ -68,7 +77,12 @@ function ContactPageAdmin() {
                                         <b>Phản hồi</b>
                                     </div>
                                     <div className="col-sm-1">
-                                        <FontAwesomeIcon className={clsx(styles.icon_delete)} icon={faTrash} />
+                                        <FontAwesomeIcon
+                                            className={clsx(styles.icon_delete)}
+                                            icon={faTrash}
+                                            onClick={handleDeleteContact(contact._id)}
+                                            style={{ cursor: 'pointer' }}
+                                        />
                                     </div>
                                 </div>
                             </div>
