@@ -176,7 +176,7 @@ function Header() {
                                         className={clsx(styles.dropdown_togger)}
                                         onClick={() => setIsOpen(!isOpen)}
                                         style={{
-                                            backgroundColor: 'rgb(29, 8, 222)',
+                                            backgroundColor: '#ff007f',
                                             color: 'white',
                                             marginLeft: '5px',
                                         }}
@@ -244,14 +244,14 @@ function Header() {
                     {search ? (
                         <Button
                             href={`/search?keyword=${search}`}
-                            style={{ padding: '10px', color: 'blue' }}
+                            style={{ padding: '10px' }}
                             className={clsx(styles.btn, styles.btn_solid_primary, styles.btn_search)}
                         >
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </Button>
                     ) : (
                         <Button
-                            style={{ padding: '10px 25px 10px 10px', color: 'blue' }}
+                            style={{ padding: '10px 25px 10px 10px' }}
                             className={clsx(styles.btn, styles.btn_solid_primary, styles.btn_search)}
                         >
                             <FontAwesomeIcon icon={faMagnifyingGlass} />

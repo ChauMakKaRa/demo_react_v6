@@ -165,6 +165,13 @@ function OrderPageAdmin() {
                                 <b>Trạng thái</b>
                             </div>
                         </div>
+                        {orders.length === 0 ? (
+                            <div style={{ color: 'red', textAlign: 'center', marginTop: '50px' }}>
+                                Hiện đang không có đơn đặt hàng nào.
+                            </div>
+                        ) : (
+                            <></>
+                        )}
                         {orders.map((order, index) => (
                             <div key={index} className={clsx(styles.body_table)}>
                                 <div className={clsx(styles.input_checkbox)}>

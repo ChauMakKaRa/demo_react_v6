@@ -105,31 +105,47 @@ function WareHouse() {
                         </div>
                     </div>
                     <div className={clsx(styles.products)}>
-                        {currentProducts.map((product, index) => (
-                            <div key={index} className={clsx(styles.body_table)}>
-                                <div className="row">
-                                    <div className="col-sm-1">{product.id}</div>
-                                    <div className="col-sm-3">{product.name}</div>
-                                    <div className="col-sm-2">{product.price.toLocaleString('en-US')}đ</div>
-                                    <div className="col-sm-2">{product.input_price.toLocaleString('en-US')}đ</div>
-                                    <div className="col-sm-1">{product.quantity_purchased}</div>
-                                    <div className="col-sm-1">{product.quantity_in_stock}</div>
-                                    <div className="col-sm-1">
-                                        {product.quantity_purchased - product.quantity_in_stock}
-                                    </div>
-                                    <div className="col-sm-1">
-                                        <div className={clsx(styles.actions)}>
-                                            <div className={clsx(styles.repair)}>
-                                                <FontAwesomeIcon icon={faPen} className={clsx(styles.repair_icon)} />
+                        {currentProducts.length === 0 ? (
+                            <div style={{ color: 'red', textAlign: 'center', marginTop: '20px' }}>
+                                Hiện tại không có sản phẩm.
+                            </div>
+                        ) : (
+                            <>
+                                {currentProducts.map((product, index) => (
+                                    <div key={index} className={clsx(styles.body_table)}>
+                                        <div className="row">
+                                            <div className="col-sm-1">{product.id}</div>
+                                            <div className="col-sm-3">{product.name}</div>
+                                            <div className="col-sm-2">{product.price.toLocaleString('en-US')}đ</div>
+                                            <div className="col-sm-2">
+                                                {product.input_price.toLocaleString('en-US')}đ
                                             </div>
-                                            <div className={clsx(styles.delete)}>
-                                                <FontAwesomeIcon className={clsx(styles.delete_icon)} icon={faX} />
+                                            <div className="col-sm-1">{product.quantity_purchased}</div>
+                                            <div className="col-sm-1">{product.quantity_in_stock}</div>
+                                            <div className="col-sm-1">
+                                                {product.quantity_in_stock - product.quantity_purchased}
+                                            </div>
+                                            <div className="col-sm-1">
+                                                <div className={clsx(styles.actions)}>
+                                                    <div className={clsx(styles.repair)}>
+                                                        <FontAwesomeIcon
+                                                            icon={faPen}
+                                                            className={clsx(styles.repair_icon)}
+                                                        />
+                                                    </div>
+                                                    <div className={clsx(styles.delete)}>
+                                                        <FontAwesomeIcon
+                                                            className={clsx(styles.delete_icon)}
+                                                            icon={faX}
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
+                                ))}
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

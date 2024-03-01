@@ -1,4 +1,4 @@
-import { LayoutAccount, LayoutAdminNoHeader, LayoutHeaderOnly, LayoutShipper } from '@/components/Layout';
+import { LayoutAccount, LayoutAdminNoHeader, LayoutShipper } from '@/components/Layout';
 import Home from '@/pages/Home';
 import Follwing from '@/pages/Follwing';
 import Detail from '@/pages/Detail';

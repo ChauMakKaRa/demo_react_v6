@@ -104,15 +104,15 @@ function Sidebar() {
                             </Button>
                         </li>
                         <li>
-                            <Button to={'/admin/shippement'} className={clsx(styles.faShoppingCart, styles.li_a)}>
-                                <FontAwesomeIcon className={clsx(styles.icons)} icon={faTruck} />
-                                Vận chuyển
-                            </Button>
-                        </li>
-                        <li>
                             <Button to={'/admin/notification'} className={clsx(styles.faEnvelope, styles.li_a)}>
                                 <FontAwesomeIcon className={clsx(styles.icons)} icon={faBell} />
                                 Thông báo
+                            </Button>
+                        </li>
+                        <li>
+                            <Button to={'/admin/shippement'} className={clsx(styles.faShoppingCart, styles.li_a)}>
+                                <FontAwesomeIcon className={clsx(styles.icons)} icon={faTruck} />
+                                Vận chuyển và sửa chữa
                             </Button>
                         </li>
                         <li>

@@ -65,28 +65,36 @@ function ContactPageAdmin() {
                                 <div className="col-sm-1"></div>
                             </div>
                         </div>
-                        {contacts.map((contact, index) => (
-                            <div key={index} className={clsx(styles.body_contact)}>
-                                <div className="row">
-                                    <div className="col-sm-1">{contact.name}</div>
-                                    <div className="col-sm-2">{contact.email}</div>
-                                    <div className="col-sm-2">{contact.phone}</div>
-                                    <div className="col-sm-2">{contact.content}</div>
-                                    <div className="col-sm-3">{contact.createdAt}</div>
-                                    <div className="col-sm-1">
-                                        <b>Phản hồi</b>
-                                    </div>
-                                    <div className="col-sm-1">
-                                        <FontAwesomeIcon
-                                            className={clsx(styles.icon_delete)}
-                                            icon={faTrash}
-                                            onClick={handleDeleteContact(contact._id)}
-                                            style={{ cursor: 'pointer' }}
-                                        />
-                                    </div>
-                                </div>
+                        {contacts.length === 0 ? (
+                            <div style={{ color: 'red', textAlign: 'center', marginTop: '20px' }}>
+                                Hiện tại không có khách hàng nào liên hệ qua.
                             </div>
-                        ))}
+                        ) : (
+                            <>
+                                {contacts.map((contact, index) => (
+                                    <div key={index} className={clsx(styles.body_contact)}>
+                                        <div className="row">
+                                            <div className="col-sm-1">{contact.name}</div>
+                                            <div className="col-sm-2">{contact.email}</div>
+                                            <div className="col-sm-2">{contact.phone}</div>
+                                            <div className="col-sm-2">{contact.content}</div>
+                                            <div className="col-sm-3">{contact.createdAt}</div>
+                                            <div className="col-sm-1">
+                                                <b>Phản hồi</b>
+                                            </div>
+                                            <div className="col-sm-1">
+                                                <FontAwesomeIcon
+                                                    className={clsx(styles.icon_delete)}
+                                                    icon={faTrash}
+                                                    onClick={handleDeleteContact(contact._id)}
+                                                    style={{ cursor: 'pointer' }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
