@@ -17,7 +17,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #d0011b;
-    margin: 20px 10px;
+    margin: 10px 10px 5px 10px;
 }
 
 /* Filter and Star */
@@ -114,4 +114,48 @@
     cursor: pointer;
     position: relative;
     z-index: 1001;
+}
+
+.feedback {
+    display: flex;
+}
+
+.likes,
+.unlikes,
+.reply {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.icon {
+    margin: 2px 5px 0 5px;
+}
+
+.inputReply {
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.btn_reply {
+    cursor: pointer;
+    margin-left: 20px;
+    height: 45px;
+    padding: 5px;
+    background: #4caf50;
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 5px;
+}
+
+.reply_col_11 {
+    margin-left: 20px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    background: #e4e6eb;
+    border-radius: 20px;
 }

@@ -155,6 +155,11 @@ const publicRoutes = [
         layout: LayoutAdminNoHeader,
     },
     {
+        path: '/admin/ware-house/detail',
+        component: DetailProduct,
+        layout: LayoutAdminNoHeader,
+    },
+    {
         path: '/admin/order',
         component: OrderPageAdmin,
         layout: LayoutAdmin,

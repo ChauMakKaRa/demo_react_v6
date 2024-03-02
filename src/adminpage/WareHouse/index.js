@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from '@/config-api';
 import FormAddProduct from './FormAddProduct';
+import Button from '@/components/Button';
 
 function WareHouse() {
     const [showFormRepairUser, setShowFormRepairUser] = useState(false);
@@ -115,7 +116,9 @@ function WareHouse() {
                                     <div key={index} className={clsx(styles.body_table)}>
                                         <div className="row">
                                             <div className="col-sm-1">{product.id}</div>
-                                            <div className="col-sm-3">{product.name}</div>
+                                            <div className="col-sm-3">
+                                                <Button to={`detail?id=${product.id}`}>{product.name}</Button>
+                                            </div>
                                             <div className="col-sm-2">{product.price.toLocaleString('en-US')}đ</div>
                                             <div className="col-sm-2">
                                                 {product.input_price.toLocaleString('en-US')}đ

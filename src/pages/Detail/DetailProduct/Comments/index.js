@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from './Comments.module.scss';
 import { useEffect, useState } from 'react';
 import FormComment from './FormComment';
-import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faThumbsUp, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import api from '@/config-api';
 import axios from 'axios';
@@ -12,6 +12,9 @@ function Comments({ product }) {
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState([]);
     const [fillterStar, setFillterStar] = useState(0);
+    const [showInputTextReply, setShowInputTextReply] = useState('');
+    const [reply, setReply] = useState('');
+    const [showReplyComment, setShowReplyComment] = useState(false);
 
     const ProductRating = ({ rating }) => {
         const filledStars = Math.floor(rating);
@@ -83,6 +86,42 @@ function Comments({ product }) {
             }
         }
         return total;
+    };
+    const handleLike = async (id) => {
+        const user_id = sessionStorage.getItem('_id');
+        if (id) {
+            try {
+                const response = await axios.patch(`${api.post_comment}?id=${id}&user_id=${user_id}`);
+                const updatedLikeCount = response.data.updatedLikeCount;
+                if (updatedLikeCount !== undefined) {
+                    const likeCountElement = document.getElementById(`likeCount_${id}`); // Assuming the element has an id like "likeCount_<id>"
+                    if (likeCountElement) {
+                        likeCountElement.innerText = updatedLikeCount;
+                    }
+                } else {
+                    console.log('Invalid server response for updated like count');
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    };
+
+    const handleInPutReply = (id) => {
+        setShowInputTextReply(id);
+    };
+
+    const handleReply = async (id) => {
+        console.log(reply);
+        const user_id = sessionStorage.getItem('_id');
+        try {
+            const response = await axios.put(`${api.post_comment}?id=${id}&user_id=${user_id}&content=${reply}`);
+            if (response.data.message) {
+                window.location.reload();
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <div className={clsx(styles.wrapper, showForm ? styles.dark : '')}>
@@ -167,6 +206,98 @@ function Comments({ product }) {
                                     ''
                                 )}
                             </div>
+                        </div>
+                    </div>
+                    <div className="row" style={{ marginBottom: '10px' }}>
+                        <div className="col-sm-1"></div>
+                        <div className={clsx(styles.feedback, 'col-sm-11')}>
+                            <div
+                                className={clsx(styles.likes)}
+                                onClick={() => handleLike(comment._id)}
+                                style={{ display: 'flex' }}
+                            >
+                                <FontAwesomeIcon icon={faThumbsUp} className={clsx(styles.icon)} />
+
+                                <div id={`likeCount_${comment._id}`}>{`${comment.like.length}`}</div>
+                            </div>
+
+                            <div className={clsx(styles.reply)} onClick={() => handleInPutReply(comment._id)}>
+                                Trả lời
+                            </div>
+                        </div>
+                    </div>
+                    {showReplyComment === false ? (
+                        <></>
+                    ) : (
+                        <>
+                            {comment.reply.length === 0 ? (
+                                <></>
+                            ) : (
+                                <>
+                                    {comment.reply.map((rep, ind) => (
+                                        <div key={ind}>
+                                            <div className="row">
+                                                <div className="col-sm-1"></div>
+                                                <div
+                                                    className="col-sm-11"
+                                                    style={{ display: 'flex', marginBottom: '10px' }}
+                                                >
+                                                    <img
+                                                        src={`${rep.user_id.avatar}`}
+                                                        alt="avatar"
+                                                        width={30}
+                                                        height={30}
+                                                        style={{ borderRadius: '50%' }}
+                                                    />
+
+                                                    <div className="row">
+                                                        <div className="col-sm-1"></div>
+                                                        <div className={clsx(styles.reply_col_11, 'col-sm-11')}>
+                                                            <b>{`${rep.user_id.name}`}</b>
+                                                            <div>{`${rep.content}`}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </>
+                            )}
+                        </>
+                    )}
+                    {comment.reply.length === 0 ? (
+                        <></>
+                    ) : (
+                        <div className="row" style={{ marginBottom: '20px' }}>
+                            <div className="col-sm-1"></div>
+                            <div className="col-sm-11">
+                                <i
+                                    style={{ textDecoration: 'underline', cursor: 'pointer' }}
+                                    onClick={() => setShowReplyComment(!showReplyComment)}
+                                >
+                                    Xem thêm câu trả lời
+                                </i>
+                            </div>
+                        </div>
+                    )}
+                    <div className="row">
+                        <div className="col-sm-1"> </div>
+                        <div className="col-sm-11">
+                            {showInputTextReply === comment._id ? (
+                                <div style={{ display: 'flex', marginTop: '5px' }}>
+                                    <input
+                                        type="text"
+                                        value={reply}
+                                        onChange={(e) => setReply(e.target.value)}
+                                        className={clsx(styles.inputReply)}
+                                    />
+                                    <div className={clsx(styles.btn_reply)} onClick={() => handleReply(comment._id)}>
+                                        <FontAwesomeIcon icon={faPaperPlane} style={{ fontSize: '25px' }} />
+                                    </div>
+                                </div>
+                            ) : (
+                                <></>
+                            )}
                         </div>
                     </div>
                 </div>
