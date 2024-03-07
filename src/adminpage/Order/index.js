@@ -29,7 +29,6 @@ function OrderPageAdmin() {
     };
 
     const handleSubmitOption = () => {
-        console.log(selectedValue);
         fetchData(selectedValue);
         setTempValue(tempValue);
     };
