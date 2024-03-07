@@ -33,6 +33,7 @@ import ShipperPage from '@/carrierpage/Shipper';
 import RepairPage from '@/carrierpage/Repair';
 import Repair from '@/pages/Repair';
 import PrintOrder from '@/adminpage/Order/PrintOrder';
+import MethodPay from '@/pages/Pay/Method';
 // import { LayoutHeaderAdmin } from '@/components/LayoutAdmin';
 const publicRoutes = [
     {
@@ -72,6 +73,10 @@ const publicRoutes = [
     {
         path: '/pay',
         component: Pay,
+    },
+    {
+        path: '/pay/paypal',
+        component: MethodPay,
     },
     {
         path: '/ordered',

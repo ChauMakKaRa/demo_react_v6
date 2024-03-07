@@ -17,6 +17,7 @@ const api = {
     repair: 'http://localhost:3001/api/repair',
     notification_by_id: 'http://localhost:3001/api/notification-by-id',
     post_comment: 'http://localhost:3001/api/comment-user',
+    paypal: 'http://localhost:3001/api/paypal',
 
     // admin
     admin: 'http://localhost:3001/api/admin',
