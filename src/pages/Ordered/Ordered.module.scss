@@ -19,3 +19,23 @@
     color: var(--primary);
     text-align: center;
 }
+
+.heading {
+    display: flex;
+}
+
+.select,
+.submit {
+    padding: 10px;
+    margin: 10px 0 0 10px;
+}
+.select select,
+.submit button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.submit button {
+    background: rgb(250, 3, 52);
+    color: #fff;
+}

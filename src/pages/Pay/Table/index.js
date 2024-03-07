@@ -18,7 +18,7 @@ function Table({ carts }) {
             </thead>
             <tbody>
                 {carts.map((cart, index) => (
-                    <tr key={cart._id}>
+                    <tr key={index}>
                         <td style={{ width: '200px', paddingLeft: '50px' }}>
                             <img src={cart.id_product.image} alt="asd" width={150} />
                         </td>

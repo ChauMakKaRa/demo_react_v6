@@ -7,6 +7,7 @@ const images = {
     introduce4: require('./introduce_4.png'),
     introduce5: require('./introduce_5.png'),
     background_login: require('./background_login.jpg'),
+    payment: require('./online-payment.svg').default,
 };
 
 export default images;
