@@ -34,6 +34,7 @@ import RepairPage from '@/carrierpage/Repair';
 import Repair from '@/pages/Repair';
 import PrintOrder from '@/adminpage/Order/PrintOrder';
 import MethodPay from '@/pages/Pay/Method';
+// import BotAI from '@/pages/BotAI';
 // import { LayoutHeaderAdmin } from '@/components/LayoutAdmin';
 const publicRoutes = [
     {
@@ -127,6 +128,10 @@ const publicRoutes = [
         path: '/register-for-repair',
         component: Repair,
     },
+    // {
+    //     path: '/bot',
+    //     component: BotAI,
+    // },
 
     // admin
     {

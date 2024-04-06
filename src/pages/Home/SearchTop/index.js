@@ -3,7 +3,23 @@ import styles from './SearchTop.module.scss';
 import Button from '@/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import  axios  from 'axios';
+import api from '@/config-api';
 function SearchTop() {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${api.searTop}`);
+                const data = response.data;
+                setProducts(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    },[]);
     return (
         <div className={clsx(styles.wrapper)}>
             <div className={clsx(styles.search_top_header)}>
@@ -20,51 +36,17 @@ function SearchTop() {
             <div className={clsx(styles.search_top_bottom)}>
                 <div className={clsx(styles.list_items)}>
                     <ul className={clsx(styles.image_carousel_item_list_ul)}>
-                        <li className={clsx(styles.image_carousel_item_li)}>
-                            <Button>
-                                <img
-                                    src="https://down-vn.img.susercontent.com/file/31e1336a621325c970498b2a3b598d2a"
-                                    alt="nồi cơm"
-                                    className={clsx(styles.image_top_search)}
-                                />
-                            </Button>
-                        </li>
-                        <li className={clsx(styles.image_carousel_item_li)}>
-                            <Button>
-                                <img
-                                    src="https://down-vn.img.susercontent.com/file/31e1336a621325c970498b2a3b598d2a"
-                                    alt="nồi cơm"
-                                    className={clsx(styles.image_top_search)}
-                                />
-                            </Button>
-                        </li>
-                        <li className={clsx(styles.image_carousel_item_li)}>
-                            <Button>
-                                <img
-                                    src="https://down-vn.img.susercontent.com/file/31e1336a621325c970498b2a3b598d2a"
-                                    alt="nồi cơm"
-                                    className={clsx(styles.image_top_search)}
-                                />
-                            </Button>
-                        </li>
-                        <li className={clsx(styles.image_carousel_item_li)}>
-                            <Button>
-                                <img
-                                    src="https://down-vn.img.susercontent.com/file/31e1336a621325c970498b2a3b598d2a"
-                                    alt="nồi cơm"
-                                    className={clsx(styles.image_top_search)}
-                                />
-                            </Button>
-                        </li>
-                        <li className={clsx(styles.image_carousel_item_li)}>
-                            <Button>
-                                <img
-                                    src="https://down-vn.img.susercontent.com/file/31e1336a621325c970498b2a3b598d2a"
-                                    alt="nồi cơm"
-                                    className={clsx(styles.image_top_search)}
-                                />
-                            </Button>
-                        </li>
+                        {products.map((product, index) => (
+                            <li key={index} className={clsx(styles.image_carousel_item_li)}>
+                                <Button to={`/detail-product?id=${product.id}`}>
+                                    <img
+                                        src={`${product.image}`}
+                                        alt={`${product.kind}`}
+                                        className={clsx(styles.image_top_search)}
+                                    />
+                                </Button>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
